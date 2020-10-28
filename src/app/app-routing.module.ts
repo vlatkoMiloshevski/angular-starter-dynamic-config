@@ -1,26 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NavigationService } from './shared/navigation.service';
 
-export const appRoutes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule),
-    data: { preload: true },
-  },
-  {
-    path: 'review',
-    loadChildren: () => import('./review/review.module').then(m => m.ReviewModule),
-    data: { preload: true },
-  }
-];
-
-// export const appRoutes: Routes = [
-//   {
-//     path: '',
-//     loadChildren: () => import('./review/review.module').then(m => m.ReviewModule),
-//     data: { preload: true },
-//   },
-// ];
+const navigationService = new NavigationService();
+export const appRoutes: Routes = navigationService.getRoutes();
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

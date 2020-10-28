@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DynamicComponent } from '../dynamic-module-loader/dynamic.component';
-import { KeepingYouInformedComponent } from './keeping-you-informed/keeping-you-informed.component';
-import { WhatsCoveredComponent } from './whats-covered/whats-covered.component';
-import { QuickCheckComponent } from './quick-check/quick-check.component';
+import { AboutYouComponent } from './about-you/about-you.component';
+import { FeesAndCancelationComponent } from './fees-and-cancelation/fees-and-cancelation.component';
+import { YourCarComponent } from './your-car/your-carcomponent';
 
 @Injectable()
 export class ReviewService {
@@ -45,9 +45,9 @@ interface ReviewStrategy {
 class ESbrand implements ReviewStrategy {
     getComponents() {
         return [
-            new DynamicComponent(QuickCheckComponent),
-            new DynamicComponent(WhatsCoveredComponent),
-            new DynamicComponent(KeepingYouInformedComponent),
+            new DynamicComponent(AboutYouComponent),
+            new DynamicComponent(FeesAndCancelationComponent),
+            new DynamicComponent(YourCarComponent),
         ];
     }
 }
@@ -55,7 +55,7 @@ class ESbrand implements ReviewStrategy {
 class SWbrand implements ReviewStrategy {
     getComponents() {
         return [
-            new DynamicComponent(WhatsCoveredComponent),
+            new DynamicComponent(YourCarComponent),
         ];
     }
 }
@@ -63,8 +63,8 @@ class SWbrand implements ReviewStrategy {
 class FAbrand implements ReviewStrategy {
     getComponents() {
         return [
-            new DynamicComponent(WhatsCoveredComponent),
-            new DynamicComponent(KeepingYouInformedComponent),
+            new DynamicComponent(AboutYouComponent),
+            new DynamicComponent(FeesAndCancelationComponent),
         ];
     }
 }

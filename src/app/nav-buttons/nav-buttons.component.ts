@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { appRoutes } from '../app-routing.module';
 
@@ -6,7 +6,7 @@ import { appRoutes } from '../app-routing.module';
     selector: 'app-nav-buttons',
     templateUrl: './nav-buttons.component.html',
 })
-export class NavButtonsComponent implements OnInit {
+export class NavButtonsComponent implements OnInit, OnChanges {
     nextState: Route;
     prevState: Route;
 
@@ -20,6 +20,10 @@ export class NavButtonsComponent implements OnInit {
         const currentIndex = appRoutes.findIndex(route => `/${route.path}` === this.router.url);
         this.nextState = appRoutes[currentIndex + 1];
         this.prevState = appRoutes[currentIndex - 1];
+    }
+
+    ngOnChanges(){
+        console.log('onChanges');
     }
 
     goBack() {

@@ -7,7 +7,7 @@ import { QuickCheckComponent } from './quick-check/quick-check.component';
 @Injectable()
 export class LandingService {
     getData() {
-        const brand = getBrand('ES');
+        const brand = getBrand('SW');
         const landingContext = new LandingContext(brand);
         return landingContext.components;
     }

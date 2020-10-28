@@ -1,27 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { KeepingYouInformedComponent } from './keeping-you-informed/keeping-you-informed.component';
 import { ReviewRoutes } from './review.routes';
 import { ReviewService } from './review.service';
-import { QuickCheckComponent } from './quick-check/quick-check.component';
-import { WhatsCoveredComponent } from './whats-covered/whats-covered.component';
+import { AboutYouComponent } from './about-you/about-you.component';
+import { ReviewComponent } from './review.component';
+import { DynamicModule } from '../dynamic-module-loader/dynamic.module';
+import { SharedModule } from '../shared/shared.module';
+import { YourCarComponent } from './your-car/your-carcomponent';
+import { FeesAndCancelationComponent } from './fees-and-cancelation/fees-and-cancelation.component';
 
 
 @NgModule({
     declarations: [
-        WhatsCoveredComponent,
-        KeepingYouInformedComponent,
-        QuickCheckComponent,
+        FeesAndCancelationComponent,
+        AboutYouComponent,
+        YourCarComponent,
+        ReviewComponent,
     ],
     providers: [ReviewService],
     imports: [
         CommonModule,
         ReviewRoutes,
+        DynamicModule,
+        SharedModule,
     ],
     entryComponents: [
-        WhatsCoveredComponent,
-        KeepingYouInformedComponent,
-        QuickCheckComponent,
+        FeesAndCancelationComponent,
+        AboutYouComponent,
+        YourCarComponent,
+        ReviewComponent,
     ],
 })
 export class ReviewModule { }
