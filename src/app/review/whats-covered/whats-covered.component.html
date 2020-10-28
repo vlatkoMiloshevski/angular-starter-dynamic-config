@@ -1,0 +1,14 @@
+<div class="whats-covered">
+    <h2 class="title" data-qa-id="whatsCoveredTitle">Next, what's covered & what's not...</h2>
+    <ul class="( whats-covered )">
+        <ng-container *ngFor="let q of data; index as i">
+            <li class="is-size-4">
+                <div class="columns is-gapless is-marginless is-mobile">
+                    <div class="is-size-5 column whatsCoveredLink" data-qa-id="whatsCoveredLink">
+                        <a class="has-text-weight-bold">{{ q.q }}</a>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>

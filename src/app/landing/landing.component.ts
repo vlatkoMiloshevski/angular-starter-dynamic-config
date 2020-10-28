@@ -10,7 +10,9 @@ export class LandingComponent implements OnInit {
   @Input() data: any;
   dynamicComponentList: DynamicComponent[];
 
-  constructor(private landingService: LandingService) { }
+  constructor(
+    private landingService: LandingService,
+  ) { }
 
   ngOnInit() {
     this.dynamicComponentList = this.landingService.getData();
