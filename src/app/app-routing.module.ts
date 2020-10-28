@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
   }
 ];
 
-// export const routes: Routes = [
+// export const appRoutes: Routes = [
 //   {
 //     path: '',
 //     loadChildren: () => import('./review/review.module').then(m => m.ReviewModule),
