@@ -1,6 +1,6 @@
 window['esure-env'] = {
-    NAVIGATION_STRATEGY: '1',
-    LANDING_STRATEGY: '2',
-    REVIEW_STRATEGY: '2',
+    NAVIGATION_STRATEGY: '3',
+    LANDING_STRATEGY: '3',
+    REVIEW_STRATEGY: '3',
   };
   

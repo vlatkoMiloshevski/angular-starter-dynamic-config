@@ -45,11 +45,6 @@ class Strategy1 implements NavigationStrategy {
                 loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule),
                 data: { preload: true },
             },
-            {
-                path: 'review',
-                loadChildren: () => import('../review/review.module').then(m => m.ReviewModule),
-                data: { preload: true },
-            },
         ];
     }
 }
@@ -60,11 +55,6 @@ class Strategy2 implements NavigationStrategy {
             {
                 path: '',
                 loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule),
-                data: { preload: true },
-            },
-            {
-                path: 'review',
-                loadChildren: () => import('../review/review.module').then(m => m.ReviewModule),
                 data: { preload: true },
             },
             {
@@ -82,6 +72,11 @@ class Strategy3 implements NavigationStrategy {
             {
                 path: '',
                 loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule),
+                data: { preload: true },
+            },
+            {
+                path: 'review',
+                loadChildren: () => import('../review/review.module').then(m => m.ReviewModule),
                 data: { preload: true },
             },
             {

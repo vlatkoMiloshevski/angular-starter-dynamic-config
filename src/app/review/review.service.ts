@@ -46,8 +46,6 @@ class Strategy1 implements ReviewStrategy {
     getComponents() {
         return [
             new DynamicComponent(AboutYouComponent),
-            new DynamicComponent(FeesAndCancelationComponent),
-            new DynamicComponent(YourCarComponent),
         ];
     }
 }
@@ -55,7 +53,8 @@ class Strategy1 implements ReviewStrategy {
 class Strategy2 implements ReviewStrategy {
     getComponents() {
         return [
-            new DynamicComponent(YourCarComponent),
+            new DynamicComponent(AboutYouComponent),
+            new DynamicComponent(FeesAndCancelationComponent),
         ];
     }
 }
@@ -64,6 +63,7 @@ class Strategy3 implements ReviewStrategy {
     getComponents() {
         return [
             new DynamicComponent(AboutYouComponent),
+            new DynamicComponent(YourCarComponent),
             new DynamicComponent(FeesAndCancelationComponent),
         ];
     }
