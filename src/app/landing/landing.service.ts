@@ -7,24 +7,24 @@ import { QuickCheckComponent } from './quick-check/quick-check.component';
 @Injectable()
 export class LandingService {
     getData() {
-        const brand = getBrand('SW');
-        const landingContext = new LandingContext(brand);
+        const strategy = getStrategy(window['esure-env'].LANDING_STRATEGY);
+        const landingContext = new LandingContext(strategy);
         return landingContext.components;
     }
 }
 
-const getBrand = (brand): LandingStrategy => {
+const getStrategy = (strategyType): LandingStrategy => {
     let brandInstance;
 
-    switch (brand) {
-        case 'ES':
-            brandInstance = new ESbrand();
+    switch (strategyType) {
+        case '1':
+            brandInstance = new Strategy1();
             break;
-        case 'SW':
-            brandInstance = new SWbrand();
+        case '2':
+            brandInstance = new Strategy2();
             break;
-        case 'FA':
-            brandInstance = new FAbrand();
+        case '3':
+            brandInstance = new Strategy3();
             break;
     }
 
@@ -42,7 +42,7 @@ interface LandingStrategy {
     getComponents();
 }
 
-class ESbrand implements LandingStrategy {
+class Strategy1 implements LandingStrategy {
     getComponents() {
         return [
             new DynamicComponent(WhatsCoveredComponent),
@@ -51,7 +51,7 @@ class ESbrand implements LandingStrategy {
     }
 }
 
-class SWbrand implements LandingStrategy {
+class Strategy2 implements LandingStrategy {
     getComponents() {
         return [
             new DynamicComponent(QuickCheckComponent),
@@ -61,7 +61,7 @@ class SWbrand implements LandingStrategy {
     }
 }
 
-class FAbrand implements LandingStrategy {
+class Strategy3 implements LandingStrategy {
     getComponents() {
         return [
             new DynamicComponent(WhatsCoveredComponent),

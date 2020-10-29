@@ -7,24 +7,24 @@ import { YourCarComponent } from './your-car/your-carcomponent';
 @Injectable()
 export class ReviewService {
     getData() {
-        const brand = getBrand('ES');
-        const reviewContext = new ReviewContext(brand);
+        const strategy = getStrategy(window['esure-env'].REVIEW_STRATEGY);
+        const reviewContext = new ReviewContext(strategy);
         return reviewContext.components;
     }
 }
 
-const getBrand = (brand): ReviewStrategy => {
+const getStrategy = (strategyType): ReviewStrategy => {
     let brandInstance;
 
-    switch (brand) {
-        case 'ES':
-            brandInstance = new ESbrand();
+    switch (strategyType) {
+        case '1':
+            brandInstance = new Strategy1();
             break;
-        case 'SW':
-            brandInstance = new SWbrand();
+        case '2':
+            brandInstance = new Strategy2();
             break;
-        case 'FA':
-            brandInstance = new FAbrand();
+        case '3':
+            brandInstance = new Strategy3();
             break;
     }
 
@@ -42,7 +42,7 @@ interface ReviewStrategy {
     getComponents();
 }
 
-class ESbrand implements ReviewStrategy {
+class Strategy1 implements ReviewStrategy {
     getComponents() {
         return [
             new DynamicComponent(AboutYouComponent),
@@ -52,7 +52,7 @@ class ESbrand implements ReviewStrategy {
     }
 }
 
-class SWbrand implements ReviewStrategy {
+class Strategy2 implements ReviewStrategy {
     getComponents() {
         return [
             new DynamicComponent(YourCarComponent),
@@ -60,7 +60,7 @@ class SWbrand implements ReviewStrategy {
     }
 }
 
-class FAbrand implements ReviewStrategy {
+class Strategy3 implements ReviewStrategy {
     getComponents() {
         return [
             new DynamicComponent(AboutYouComponent),

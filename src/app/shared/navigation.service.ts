@@ -2,28 +2,28 @@
 export class NavigationService {
     constructor() { }
     getRoutes() {
-        const brand = getBrand('SW');
-        const navigationContext = new NavigationContext(brand);
+        const strategy = getStrategy(window['esure-env'].NAVIGATION_STRATEGY);
+        const navigationContext = new NavigationContext(strategy);
         return navigationContext.routes;
     }
 }
 
-const getBrand = (brand): NavigationStrategy => {
-    let brandInstance;
+const getStrategy = (strategyType): NavigationStrategy => {
+    let strategyInstance;
 
-    switch (brand) {
-        case 'ES':
-            brandInstance = new ESbrand();
+    switch (strategyType) {
+        case '1':
+            strategyInstance = new Strategy1();
             break;
-        case 'SW':
-            brandInstance = new SWbrand();
+        case '2':
+            strategyInstance = new Strategy2();
             break;
-        case 'FA':
-            brandInstance = new FAbrand();
+        case '3':
+            strategyInstance = new Strategy3();
             break;
     }
 
-    return brandInstance;
+    return strategyInstance;
 };
 
 class NavigationContext {
@@ -37,7 +37,7 @@ interface NavigationStrategy {
     getRoutes();
 }
 
-class ESbrand implements NavigationStrategy {
+class Strategy1 implements NavigationStrategy {
     getRoutes() {
         return [
             {
@@ -54,7 +54,7 @@ class ESbrand implements NavigationStrategy {
     }
 }
 
-class SWbrand implements NavigationStrategy {
+class Strategy2 implements NavigationStrategy {
     getRoutes() {
         return [
             {
@@ -76,7 +76,7 @@ class SWbrand implements NavigationStrategy {
     }
 }
 
-class FAbrand implements NavigationStrategy {
+class Strategy3 implements NavigationStrategy {
     getRoutes() {
         return [
             {
