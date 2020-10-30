@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { SelectedItemModel } from '../shared/dynamic-single-select/dynamic-single-select.component';
 import { DynamicComponent } from './dynamic.component';
 import { DynamicDirective } from './dynamic.directive';
 
@@ -10,7 +9,7 @@ import { DynamicDirective } from './dynamic.directive';
 export class DynamicLoaderComponent implements OnInit, OnDestroy {
     @Input() dataItem: DynamicComponent;
     @ViewChild(DynamicDirective, { static: true }) appDynamicDirective: DynamicDirective;
-    @Output() outputEvent: EventEmitter<SelectedItemModel> = new EventEmitter();
+    @Output() outputEvent: EventEmitter<any> = new EventEmitter();
 
     private componentRef;
     constructor(private componentFactoryResolver: ComponentFactoryResolver) { }

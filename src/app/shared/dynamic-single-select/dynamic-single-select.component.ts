@@ -34,7 +34,6 @@ export class DynamicSingleSelectComponent implements OnInit {
     ngOnInit() {
         const advancedListItems = this.inputList.filter(x => x.type === selectedItemPropertyType.ADVANCED_SEARCH);
         this.strategyComponent = this.dynamicSingleSelectService.getComponent(this.strategy, advancedListItems);
-
         this.form = this.formBuilder.group({ selectedItem: [null, this.selectedItemValidator] });
     }
 
