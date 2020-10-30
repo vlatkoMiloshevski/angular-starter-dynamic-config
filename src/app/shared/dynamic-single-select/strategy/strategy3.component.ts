@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectedItemModel } from '../dynamic-single-select.component';
 
 @Component({
@@ -8,15 +7,11 @@ import { SelectedItemModel } from '../dynamic-single-select.component';
 export class Strategy3Component implements OnInit {
     @Input() data: SelectedItemModel[];
     @Output() outputEvent: EventEmitter<SelectedItemModel> = new EventEmitter();
-    form: FormGroup;
 
-    constructor(
-        public formBuilder: FormBuilder,
-    ) {
+    constructor() {
     }
 
     ngOnInit() {
-        this.form = this.formBuilder.group({ name: [''] });
     }
 
     selectAdvanced(itemName) {
