@@ -6,8 +6,9 @@ import { AboutYouComponent } from './about-you/about-you.component';
 import { ReviewComponent } from './review.component';
 import { DynamicModule } from '../dynamic-module-loader/dynamic.module';
 import { SharedModule } from '../shared/shared.module';
-import { YourCarComponent } from './your-car/your-carcomponent';
+import { YourCarComponent } from './your-car/your-car.component';
 import { FeesAndCancelationComponent } from './fees-and-cancelation/fees-and-cancelation.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({

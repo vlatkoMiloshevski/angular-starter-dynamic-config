@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { SelectedItemModel } from '../shared/dynamic-single-select/dynamic-single-select.component';
 import { DynamicComponent } from './dynamic.component';
 import { DynamicDirective } from './dynamic.directive';
 
@@ -9,8 +10,9 @@ import { DynamicDirective } from './dynamic.directive';
 export class DynamicLoaderComponent implements OnInit, OnDestroy {
     @Input() dataItem: DynamicComponent;
     @ViewChild(DynamicDirective, { static: true }) appDynamicDirective: DynamicDirective;
-    interval: any;
+    @Output() outputEvent: EventEmitter<SelectedItemModel> = new EventEmitter();
 
+    private componentRef;
     constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
     ngOnInit() {
@@ -18,7 +20,7 @@ export class DynamicLoaderComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        clearInterval(this.interval);
+
     }
 
     loadComponent() {
@@ -28,6 +30,10 @@ export class DynamicLoaderComponent implements OnInit, OnDestroy {
         const viewContainerRef = this.appDynamicDirective.viewContainerRef;
         viewContainerRef.clear();
 
-        const componentRef = viewContainerRef.createComponent<DynamicComponent>(componentFactory);
+        this.componentRef = viewContainerRef.createComponent<DynamicComponent>(componentFactory);
+        this.componentRef.instance.data = dataItem.data;
+        if (this.componentRef.instance.outputEvent) {
+            this.componentRef.instance.outputEvent.subscribe(val => this.outputEvent.emit(val));
+        }
     }
 }

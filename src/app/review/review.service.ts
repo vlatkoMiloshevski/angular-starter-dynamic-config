@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DynamicComponent } from '../dynamic-module-loader/dynamic.component';
 import { AboutYouComponent } from './about-you/about-you.component';
 import { FeesAndCancelationComponent } from './fees-and-cancelation/fees-and-cancelation.component';
-import { YourCarComponent } from './your-car/your-carcomponent';
+import { YourCarComponent } from './your-car/your-car.component';
 
 @Injectable()
 export class ReviewService {

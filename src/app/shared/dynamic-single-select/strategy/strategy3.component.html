@@ -1,0 +1,9 @@
+<p>Strategy 3</p>
+<ng-container>
+    <form [formGroup]="form">
+        <select formControlName="name" (change)="selectAdvanced($event.target.value)">
+            <option disabled [selected]='isDefault'>Select option</option>
+            <option *ngFor="let item of data">{{item.name}}</option>
+        </select>
+    </form>
+</ng-container>

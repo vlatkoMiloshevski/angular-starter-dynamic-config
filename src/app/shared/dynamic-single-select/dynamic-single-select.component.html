@@ -1,0 +1,25 @@
+<div style="border: 1px solid green; padding: 10px;">
+    <pre>ITEM{{form.valid? ' SELECTED': ' NOT SELECTED'}}</pre>
+
+    <div>
+        <ng-container *ngFor="let item of primaryListItems">
+            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
+                [ngStyle]="{'background-color': item.isSelected ? 'gray' : 'lightgray'}" (click)="selectPrimary(item)">
+                {{item.name}}
+            </span>
+        </ng-container>
+
+        <ng-container>
+            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
+                [ngStyle]="{'background-color': otherItem.isSelected ? 'gray' : 'lightgray'}" (click)="selectOther()">
+                other
+            </span>
+        </ng-container>
+    </div>
+
+    <div>
+        <app-dynamic-loader *ngIf="otherItem.isSelected" [dataItem]="strategyComponent"
+            (outputEvent)="outputEvent($event)">
+        </app-dynamic-loader>
+    </div>
+</div>
