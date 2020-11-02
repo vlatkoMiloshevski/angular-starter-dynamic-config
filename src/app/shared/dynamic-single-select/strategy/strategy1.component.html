@@ -1,7 +1,7 @@
-<p>Strategy 1</p>
-<ng-container *ngFor="let item of data">
-    <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
-        [ngStyle]="{'background-color': item.isSelected ? 'gray' : 'lightgray'}" (click)="selectAdvanced(item)">
-        {{item.name}}
-    </span>
+<p>Strategy 3</p>
+<ng-container>
+    <select (change)="selectAdvanced($event.target.value)">
+        <option disabled [selected]='isDefault'>Select option</option>
+        <option *ngFor="let item of data">{{item.name}}</option>
+    </select>
 </ng-container>

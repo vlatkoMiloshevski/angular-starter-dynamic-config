@@ -7,7 +7,7 @@ import { DynamicDirective } from './dynamic.directive';
     templateUrl: './dynamic-loader.component.html',
 })
 export class DynamicLoaderComponent implements OnInit, OnDestroy {
-    @Input() dataItem: DynamicComponent;
+    @Input() dynamicComponent: DynamicComponent;
     @ViewChild(DynamicDirective, { static: true }) appDynamicDirective: DynamicDirective;
     @Output() outputEvent: EventEmitter<any> = new EventEmitter();
 
@@ -23,14 +23,14 @@ export class DynamicLoaderComponent implements OnInit, OnDestroy {
     }
 
     loadComponent() {
-        const dataItem = this.dataItem;
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(dataItem.component);
+        const dynamicComponent = this.dynamicComponent;
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(dynamicComponent.component);
 
         const viewContainerRef = this.appDynamicDirective.viewContainerRef;
         viewContainerRef.clear();
 
         this.componentRef = viewContainerRef.createComponent<DynamicComponent>(componentFactory);
-        this.componentRef.instance.data = dataItem.data;
+        this.componentRef.instance.data = dynamicComponent.data;
         if (this.componentRef.instance.outputEvent) {
             this.componentRef.instance.outputEvent.subscribe(val => this.outputEvent.emit(val));
         }

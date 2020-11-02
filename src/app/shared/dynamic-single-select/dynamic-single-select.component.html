@@ -3,14 +3,14 @@
 
     <div>
         <ng-container *ngFor="let item of primaryListItems">
-            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
+            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none;"
                 [ngStyle]="{'background-color': item.isSelected ? 'gray' : 'lightgray'}" (click)="selectPrimary(item)">
                 {{item.name}}
             </span>
         </ng-container>
 
         <ng-container>
-            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
+            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none;"
                 [ngStyle]="{'background-color': otherItem?.isSelected ? 'gray' : 'lightgray'}" (click)="selectOther()">
                 other
             </span>
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-        <app-dynamic-loader *ngIf="otherOrAdvancedItem?.isSelected" [dataItem]="strategyComponent"
+        <app-dynamic-loader *ngIf="otherOrAdvancedItem?.isSelected" [dynamicComponent]="strategyComponent"
             (outputEvent)="outputEvent($event)">
         </app-dynamic-loader>
     </div>

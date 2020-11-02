@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { appRoutes } from '../app-routing.module';
+import { appRoutes } from 'src/app/app-routing.module';
 
 @Component({
     selector: 'app-nav-buttons',

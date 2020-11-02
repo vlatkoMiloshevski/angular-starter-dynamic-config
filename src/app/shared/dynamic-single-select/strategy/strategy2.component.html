@@ -4,6 +4,6 @@
         (click)="click(item, $event)">
         <input style="cursor: pointer;" type="radio" id="item.name" name="dynamicSingleMultiselect"
             [value]="item.name" [(ngModel)]="selectedValue" [checked]="item.isSelected" (click)="select(item, $event)" />
-        <label style="cursor: pointer;" for="item.name">{{item.name}}</label>
+        <label style="cursor: pointer; user-select: none;" for="item.name">{{item.name}}</label>
     </span>
 </ng-container>

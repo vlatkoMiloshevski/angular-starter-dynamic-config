@@ -12,13 +12,10 @@ export class Strategy3Component implements OnInit {
     }
 
     ngOnInit() {
+
     }
 
-    selectAdvanced(itemName) {
-        this.outputEvent.emit(this.data.find(x => x.name === itemName));
-    }
-
-    get isDefault() {
-        return !this.data.some(x => x.isSelected);
+    selectAdvanced(item) {
+        this.outputEvent.emit(item);
     }
 }
