@@ -60,6 +60,15 @@ export class DynamicSingleSelectComponent implements OnInit {
         return this.inputList.find(x => x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH);
     }
 
+    get otherOrAdvancedItem(): SelectedItemModel {
+        return this.inputList.find(x => x.isSelected
+            && (x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH || x.type === selectedItemPropertyType.ADVANCED_SEARCH));
+    }
+
+    get selectedItem(): SelectedItemModel {
+        return this.inputList.find(x => x.isSelected);
+    }
+
     selectedItemValidator(control: AbstractControl) {
         if (control.value !== null && control.value.type !== selectedItemPropertyType.LOAD_ADVANCED_SEARCH) {
             return null;
@@ -70,8 +79,11 @@ export class DynamicSingleSelectComponent implements OnInit {
     outputEvent(advancedItem: SelectedItemModel) {
         this.form.get('selectedItem').setValue(advancedItem);
         this.inputList.forEach(x => x.isSelected = false);
-        this.inputList.find(x => x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH).isSelected = true;
         this.inputList.find(x => x === advancedItem).isSelected = true;
+    }
+
+    goNext() {
+        window.scrollTo({ top: 1000, behavior: 'smooth' });
     }
 
 }

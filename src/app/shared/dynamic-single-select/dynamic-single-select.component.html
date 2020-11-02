@@ -1,5 +1,5 @@
 <div style="border: 1px solid green; padding: 10px;">
-    <pre>ITEM{{form.valid? ' SELECTED': ' NOT SELECTED'}}</pre>
+    <pre>{{selectedItem?.name}}</pre>
 
     <div>
         <ng-container *ngFor="let item of primaryListItems">
@@ -11,15 +11,18 @@
 
         <ng-container>
             <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
-                [ngStyle]="{'background-color': otherItem.isSelected ? 'gray' : 'lightgray'}" (click)="selectOther()">
+                [ngStyle]="{'background-color': otherItem?.isSelected ? 'gray' : 'lightgray'}" (click)="selectOther()">
                 other
             </span>
         </ng-container>
     </div>
 
     <div>
-        <app-dynamic-loader *ngIf="otherItem.isSelected" [dataItem]="strategyComponent"
+        <app-dynamic-loader *ngIf="otherOrAdvancedItem?.isSelected" [dataItem]="strategyComponent"
             (outputEvent)="outputEvent($event)">
         </app-dynamic-loader>
+    </div>
+    <div>
+        <button [disabled]="form?.invalid" (click)="goNext()">next</button>
     </div>
 </div>

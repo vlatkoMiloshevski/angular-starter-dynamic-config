@@ -7,6 +7,7 @@ import { SelectedItemModel } from '../dynamic-single-select.component';
 export class Strategy2Component implements OnInit {
     @Input() data: SelectedItemModel[];
     @Output() outputEvent: EventEmitter<SelectedItemModel> = new EventEmitter();
+    selectedValue: string;
 
     constructor() {
     }
@@ -15,7 +16,16 @@ export class Strategy2Component implements OnInit {
 
     }
 
-    selectAdvanced(item) {
+    click(item: SelectedItemModel, event) {
+        item.isSelected = true;
+        this.selectedValue = item.name;
         this.outputEvent.emit(item);
+        event.preventDefault();
+    }
+
+    select(item: SelectedItemModel, event) {
+        this.selectedValue = item.name;
+        this.outputEvent.emit(item);
+        event.stopPropagation();
     }
 }
