@@ -1,9 +1,15 @@
 <div>
-    <h1>Landing Page</h1>
-    <br>
-    <div *ngFor="let dynamicComponent of dynamicComponentList">
+    <h1 style="position: fixed;
+    left: 18px;
+    height: 45px;
+    background-color: azure;
+    top: 45px;
+    right: 18px;
+    padding-left: 0px;">Landing Page</h1>
+    <div *ngFor="let dynamicComponent of dynamicComponentList; let i = index" style="border: 1px solid #096fae;
+    padding: 10px; margin-bottom: 10px;">
+        <p>{{i + 1}}</p>
         <app-dynamic-loader [dynamicComponent]="dynamicComponent"></app-dynamic-loader>
     </div>
-
     <app-nav-buttons></app-nav-buttons>
 </div>

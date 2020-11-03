@@ -88,6 +88,10 @@ class MulticarStrategy implements NavigationStrategy {
                 loadChildren: () => import('../multicar/landing/landing.module').then(m => m.LandingModule),
             },
             {
+                path: 'review',
+                loadChildren: () => import('../multicar/review/review.module').then(m => m.ReviewModule),
+            },
+            {
                 path: 'payment',
                 loadChildren: () => import('../multicar/payment/payment.module').then(m => m.PaymentModule),
             },

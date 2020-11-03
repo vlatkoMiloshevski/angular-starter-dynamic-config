@@ -10,7 +10,7 @@ export class YourCarComponent {
   strategy: string;
 
   constructor() {
-    this.strategy = window['esure-env'].DYNAMIC_SINGLE_SELECT;
+    this.strategy = window['esure-env'].HOME_REVIEW_DYNAMIC_SINGLE_SELECT;
     this.inputList = [
       { name: 'On my driveway', type: selectedItemPropertyType.PRIMARY },
       { name: 'In my garage', type: selectedItemPropertyType.PRIMARY },

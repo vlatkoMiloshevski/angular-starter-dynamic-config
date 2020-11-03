@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  insuranceType: string;
   constructor() { }
 
   ngOnInit() {
+    this.insuranceType = window.sessionStorage.getItem('insuranceType');
   }
 }

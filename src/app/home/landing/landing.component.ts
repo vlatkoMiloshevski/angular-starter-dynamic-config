@@ -4,7 +4,7 @@ import { LandingService } from '../../home/landing/landing.service';
 
 @Component({
   selector: 'app-landing',
-  templateUrl: './landing.component.html',
+  templateUrl: '../../core/landing/landing.component.html',
 })
 export class LandingComponent implements OnInit {
   @Input() data: any;
