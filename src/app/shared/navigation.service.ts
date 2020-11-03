@@ -1,8 +1,13 @@
 
 export class NavigationService {
-    constructor() { }
+    constructor() {
+        if (!window.sessionStorage.getItem('insuranceType')) {
+            const insuranceType = window.location.hash || '#home';
+            window.sessionStorage.setItem('insuranceType', insuranceType);
+        }
+    }
     getRoutes() {
-        const strategy = getStrategy(window['esure-env'].NAVIGATION_STRATEGY);
+        const strategy = getStrategy(window.sessionStorage.getItem('insuranceType'));
         const navigationContext = new NavigationContext(strategy);
         return navigationContext.routes;
     }
@@ -12,17 +17,17 @@ const getStrategy = (strategyType): NavigationStrategy => {
     let strategyInstance;
 
     switch (strategyType) {
-        case '1':
-            strategyInstance = new Strategy1();
+        case '#home':
+            strategyInstance = new HomeStrategy();
             break;
-        case '2':
-            strategyInstance = new Strategy2();
+        case '#motor':
+            strategyInstance = new MotorStrategy();
             break;
-        case '3':
-            strategyInstance = new Strategy3();
+        case '#multicar':
+            strategyInstance = new MulticarStrategy();
             break;
     }
-
+    window.location.hash = '';
     return strategyInstance;
 };
 
@@ -37,52 +42,54 @@ interface NavigationStrategy {
     getRoutes();
 }
 
-class Strategy1 implements NavigationStrategy {
+class HomeStrategy implements NavigationStrategy {
     getRoutes() {
         return [
             {
                 path: '',
-                loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule),
-                data: { preload: true },
-            },
-        ];
-    }
-}
-
-class Strategy2 implements NavigationStrategy {
-    getRoutes() {
-        return [
-            {
-                path: '',
-                loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule),
-                data: { preload: true },
-            },
-            {
-                path: 'payment',
-                loadChildren: () => import('../payment/payment.module').then(m => m.PaymentModule),
-                data: { preload: true },
-            },
-        ];
-    }
-}
-
-class Strategy3 implements NavigationStrategy {
-    getRoutes() {
-        return [
-            {
-                path: '',
-                loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule),
-                data: { preload: true },
+                loadChildren: () => import('../home/landing/landing.module').then(m => m.LandingModule),
             },
             {
                 path: 'review',
-                loadChildren: () => import('../review/review.module').then(m => m.ReviewModule),
-                data: { preload: true },
+                loadChildren: () => import('../home/review/review.module').then(m => m.ReviewModule),
             },
             {
                 path: 'payment',
-                loadChildren: () => import('../payment/payment.module').then(m => m.PaymentModule),
-                data: { preload: true },
+                loadChildren: () => import('../home/payment/payment.module').then(m => m.PaymentModule),
+            },
+        ];
+    }
+}
+
+class MotorStrategy implements NavigationStrategy {
+    getRoutes() {
+        return [
+            {
+                path: '',
+                loadChildren: () => import('../motor/landing/landing.module').then(m => m.LandingModule),
+            },
+            {
+                path: 'review',
+                loadChildren: () => import('../motor/review/review.module').then(m => m.ReviewModule),
+            },
+            {
+                path: 'payment',
+                loadChildren: () => import('../motor/payment/payment.module').then(m => m.PaymentModule),
+            },
+        ];
+    }
+}
+
+class MulticarStrategy implements NavigationStrategy {
+    getRoutes() {
+        return [
+            {
+                path: '',
+                loadChildren: () => import('../multicar/landing/landing.module').then(m => m.LandingModule),
+            },
+            {
+                path: 'payment',
+                loadChildren: () => import('../multicar/payment/payment.module').then(m => m.PaymentModule),
             },
         ];
     }
