@@ -1,6 +1,5 @@
-<p>Strategy 3</p>
 <ng-container>
-    <select (change)="selectAdvanced($event.target.value)">
+    <select style="margin-left: 10px; padding: 10px;" (change)="selectAdvanced($event.target.value)">
         <option disabled [selected]='isDefault'>Select option</option>
         <option *ngFor="let item of data">{{item.name}}</option>
     </select>

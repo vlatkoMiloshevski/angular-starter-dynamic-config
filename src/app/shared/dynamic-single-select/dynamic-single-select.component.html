@@ -1,6 +1,4 @@
 <div style="border: 2px solid #096fae; padding: 10px;">
-    <pre>{{selectedItem?.name}}</pre>
-
     <div>
         <ng-container *ngFor="let item of primaryListItems">
             <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none;"
@@ -21,8 +19,5 @@
         <app-dynamic-loader *ngIf="otherOrAdvancedItem?.isSelected" [dynamicComponent]="strategyComponent"
             (outputEvent)="outputEvent($event)">
         </app-dynamic-loader>
-    </div>
-    <div>
-        <button [disabled]="form?.invalid" (click)="goNext()">next</button>
     </div>
 </div>

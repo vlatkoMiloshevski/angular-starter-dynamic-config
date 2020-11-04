@@ -8,6 +8,7 @@ import { SelectedItemModel, selectedItemPropertyType } from 'src/app/shared/dyna
 export class YourCarComponent {
   inputList: Array<SelectedItemModel>;
   strategy: string;
+  isFormValid: any;
 
   constructor() {
     this.strategy = window['esure-env'][`${this.insuranceType}_REVIEW_DYNAMIC_SINGLE_SELECT`];
@@ -28,5 +29,9 @@ export class YourCarComponent {
       case '#home': return 'HOME';
       case '#multicar': return 'MULTICAR';
     }
+  }
+
+  formValidityEvent(isFormValid) {
+    this.isFormValid = isFormValid;
   }
 }

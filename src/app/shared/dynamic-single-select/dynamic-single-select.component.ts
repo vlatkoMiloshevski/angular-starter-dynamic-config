@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { DynamicComponent } from 'src/app/dynamic-module-loader/dynamic.component';
 import { DynamicSingleSelectService } from './dynamic-single-select.service';
@@ -22,6 +22,8 @@ export interface SelectedItemModel {
 export class DynamicSingleSelectComponent implements OnInit {
     @Input() inputList: SelectedItemModel[];
     @Input() strategy: string;
+    @Output() formValidityEvent: EventEmitter<boolean> = new EventEmitter();
+
     form: FormGroup;
     strategyComponent: DynamicComponent;
 
@@ -41,6 +43,7 @@ export class DynamicSingleSelectComponent implements OnInit {
         this.form.get('selectedItem').setValue(this.inputList.find(x => x === item));
         this.inputList.forEach(x => x.isSelected = false);
         this.inputList.find(x => x === item).isSelected = true;
+        this.formValidityEvent.emit(true);
     }
 
     selectOther() {
@@ -50,6 +53,7 @@ export class DynamicSingleSelectComponent implements OnInit {
         this.form.get('selectedItem').setValue(this.inputList.find(x => x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH));
         this.inputList.forEach(x => x.isSelected = false);
         this.inputList.find(x => x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH).isSelected = true;
+        this.formValidityEvent.emit(false);
     }
 
     get primaryListItems(): Array<any> {
@@ -80,10 +84,7 @@ export class DynamicSingleSelectComponent implements OnInit {
         this.form.get('selectedItem').setValue(advancedItem);
         this.inputList.forEach(x => x.isSelected = false);
         this.inputList.find(x => x === advancedItem).isSelected = true;
-    }
-
-    goNext() {
-        window.scrollTo({ top: 1000, behavior: 'smooth' });
+        this.formValidityEvent.emit(true);
     }
 
 }
