@@ -26,6 +26,9 @@ const getStrategy = (strategyType): ReviewStrategy => {
         case '3':
             brandInstance = new Strategy3();
             break;
+        default:
+            brandInstance = new Strategy1();
+            break;
     }
 
     return brandInstance;

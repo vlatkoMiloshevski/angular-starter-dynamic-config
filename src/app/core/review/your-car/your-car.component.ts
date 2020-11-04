@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SelectedItemModel, selectedItemPropertyType } from 'src/app/shared/dynamic-single-select/dynamic-single-select.component';
+import { YourCarService } from './your-car.service';
 
 @Component({
   selector: 'app-your-car',
@@ -10,8 +11,11 @@ export class YourCarComponent {
   strategy: string;
   isFormValid: any;
 
-  constructor() {
-    this.strategy = window['esure-env'][`${this.insuranceType}_REVIEW_DYNAMIC_SINGLE_SELECT`];
+  constructor(
+    private yourCarService: YourCarService,
+  ) {
+    const insuranceType = window.sessionStorage.getItem('insuranceType');
+    this.strategy = window['esure-env'][`${this.yourCarService.getInsuranceType(insuranceType)}_REVIEW_DYNAMIC_SINGLE_SELECT`];
     this.inputList = [
       { name: 'On my driveway', type: selectedItemPropertyType.PRIMARY },
       { name: 'In my garage', type: selectedItemPropertyType.PRIMARY },
@@ -21,14 +25,6 @@ export class YourCarComponent {
       { name: 'Car park - Public', type: selectedItemPropertyType.ADVANCED_SEARCH },
       { name: 'Garage - Work', type: selectedItemPropertyType.ADVANCED_SEARCH },
     ];
-  }
-
-  get insuranceType() {
-    switch (window.sessionStorage.getItem('insuranceType')) {
-      case '#motor': return 'MOTOR';
-      case '#home': return 'HOME';
-      case '#multicar': return 'MULTICAR';
-    }
   }
 
   formValidityEvent(isFormValid) {

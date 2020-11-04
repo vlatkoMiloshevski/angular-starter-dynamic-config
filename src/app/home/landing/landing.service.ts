@@ -26,6 +26,9 @@ const getStrategy = (strategyType): LandingStrategy => {
         case '3':
             brandInstance = new Strategy3();
             break;
+        default:
+            brandInstance = new Strategy1();
+            break;
     }
 
     return brandInstance;

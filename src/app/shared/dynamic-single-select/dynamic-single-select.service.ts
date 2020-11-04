@@ -28,6 +28,9 @@ const getStrategy = (strategyType: string): DynamicSingleSelectStrategy => {
         case '3':
             strategyInstance = new Strategy3();
             break;
+        default:
+            strategyInstance = new Strategy1();
+            break;
     }
 
     return strategyInstance;

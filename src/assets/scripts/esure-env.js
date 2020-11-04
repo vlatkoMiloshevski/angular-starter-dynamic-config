@@ -11,4 +11,6 @@ window['esure-env'] = {
   MULTICAR_LANDING_STRATEGY: '1',
   MULTICAR_REVIEW_STRATEGY: '3',
   MULTICAR_REVIEW_DYNAMIC_SINGLE_SELECT: '1',
+  // default insurance type
+  DEFAULT_INSURANCE_TYPE: '#home',
 };

@@ -4,6 +4,7 @@ import { FeesAndCancelationComponent } from 'src/app/core/review/fees-and-cancel
 import { YourCarComponent } from 'src/app/core/review/your-car/your-car.component';
 import { DynamicModule } from 'src/app/dynamic-module-loader/dynamic.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { YourCarService } from './your-car/your-car.service';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
         AboutYouComponent,
         YourCarComponent,
     ],
-    providers: [],
+    providers: [YourCarService],
     imports: [
         DynamicModule,
         SharedModule,

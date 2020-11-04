@@ -2,10 +2,11 @@
 export class NavigationService {
     constructor() {
         if (!window.sessionStorage.getItem('insuranceType')) {
-            const insuranceType = window.location.hash || '#home';
+            const insuranceType = window.location.hash || window['esure-env'].DEFAULT_INSURANCE_TYPE;
             window.sessionStorage.setItem('insuranceType', insuranceType);
         }
     }
+
     getRoutes() {
         const strategy = getStrategy(window.sessionStorage.getItem('insuranceType'));
         const navigationContext = new NavigationContext(strategy);
@@ -25,6 +26,9 @@ const getStrategy = (strategyType): NavigationStrategy => {
             break;
         case '#multicar':
             strategyInstance = new MulticarStrategy();
+            break;
+        default:
+            strategyInstance = new HomeStrategy();
             break;
     }
     window.location.hash = '';
