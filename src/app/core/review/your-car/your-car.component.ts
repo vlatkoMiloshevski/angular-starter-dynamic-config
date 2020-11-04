@@ -10,7 +10,7 @@ export class YourCarComponent {
   strategy: string;
 
   constructor() {
-    this.strategy = window['esure-env'].HOME_REVIEW_DYNAMIC_SINGLE_SELECT;
+    this.strategy = window['esure-env'][`${this.insuranceType}_REVIEW_DYNAMIC_SINGLE_SELECT`];
     this.inputList = [
       { name: 'On my driveway', type: selectedItemPropertyType.PRIMARY },
       { name: 'In my garage', type: selectedItemPropertyType.PRIMARY },
@@ -20,5 +20,13 @@ export class YourCarComponent {
       { name: 'Car park - Public', type: selectedItemPropertyType.ADVANCED_SEARCH },
       { name: 'Garage - Work', type: selectedItemPropertyType.ADVANCED_SEARCH },
     ];
+  }
+
+  get insuranceType() {
+    switch (window.sessionStorage.getItem('insuranceType')) {
+      case '#motor': return 'MOTOR';
+      case '#home': return 'HOME';
+      case '#multicar': return 'MULTICAR';
+    }
   }
 }
