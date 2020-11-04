@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { KeepingYouInformedComponent } from 'src/app/core/landing/keeping-you-informed/keeping-you-informed.component';
+import { QuickCheckComponent } from 'src/app/core/landing/quick-check/quick-check.component';
+import { WhatsCoveredComponent } from 'src/app/core/landing/whats-covered/whats-covered.component';
 import { DynamicComponent } from '../../dynamic-module-loader/dynamic.component';
-import { KeepingYouInformedComponent } from './keeping-you-informed/keeping-you-informed.component';
-import { WhatsCoveredComponent } from './whats-covered/whats-covered.component';
-import { QuickCheckComponent } from './quick-check/quick-check.component';
 
 @Injectable()
 export class LandingService {
@@ -45,7 +45,8 @@ interface LandingStrategy {
 class Strategy1 implements LandingStrategy {
     getComponents() {
         return [
-            new DynamicComponent(QuickCheckComponent),
+            new DynamicComponent(WhatsCoveredComponent),
+            new DynamicComponent(KeepingYouInformedComponent),
         ];
     }
 }
@@ -54,7 +55,7 @@ class Strategy2 implements LandingStrategy {
     getComponents() {
         return [
             new DynamicComponent(QuickCheckComponent),
-            new DynamicComponent(WhatsCoveredComponent),
+            new DynamicComponent(KeepingYouInformedComponent),
         ];
     }
 }
@@ -63,8 +64,8 @@ class Strategy3 implements LandingStrategy {
     getComponents() {
         return [
             new DynamicComponent(QuickCheckComponent),
-            new DynamicComponent(KeepingYouInformedComponent),
             new DynamicComponent(WhatsCoveredComponent),
+            new DynamicComponent(KeepingYouInformedComponent),
         ];
     }
 }

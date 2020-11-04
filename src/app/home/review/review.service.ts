@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { AboutYouComponent } from 'src/app/core/review/about-you/about-you.component';
+import { FeesAndCancelationComponent } from 'src/app/core/review/fees-and-cancelation/fees-and-cancelation.component';
+import { YourCarComponent } from 'src/app/core/review/your-car/your-car.component';
 import { DynamicComponent } from '../../dynamic-module-loader/dynamic.component';
-import { AboutYouComponent } from './about-you/about-you.component';
-import { FeesAndCancelationComponent } from './fees-and-cancelation/fees-and-cancelation.component';
-import { YourCarComponent } from './your-car/your-car.component';
 
 @Injectable()
 export class ReviewService {
