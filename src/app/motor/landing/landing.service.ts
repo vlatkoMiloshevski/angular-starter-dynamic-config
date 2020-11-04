@@ -7,7 +7,7 @@ import { DynamicComponent } from '../../dynamic-module-loader/dynamic.component'
 @Injectable()
 export class LandingService {
     getData() {
-        const strategy = getStrategy(window['esure-env'].MOTOR_LANDING_STRATEGY);
+        const strategy = getStrategy(window['esure-env'].CAR_LANDING_STRATEGY);
         const landingContext = new LandingContext(strategy);
         return landingContext.components;
     }

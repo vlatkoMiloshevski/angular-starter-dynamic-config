@@ -21,7 +21,7 @@ const getStrategy = (strategyType): NavigationStrategy => {
         case '#home':
             strategyInstance = new HomeStrategy();
             break;
-        case '#motor':
+        case '#car':
             strategyInstance = new MotorStrategy();
             break;
         case '#multicar':

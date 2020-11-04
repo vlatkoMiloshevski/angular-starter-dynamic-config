@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AboutYouComponent } from 'src/app/core/review/about-you/about-you.component';
-import { FeesAndCancelationComponent } from 'src/app/core/review/fees-and-cancelation/fees-and-cancelation.component';
 import { YourCarComponent } from 'src/app/core/review/your-car/your-car.component';
 import { DynamicComponent } from '../../dynamic-module-loader/dynamic.component';
 
 @Injectable()
 export class ReviewService {
     getData() {
-        const strategy = getStrategy(window['esure-env'].MOTOR_REVIEW_STRATEGY);
+        const strategy = getStrategy(window['esure-env'].CAR_REVIEW_STRATEGY);
         const reviewContext = new ReviewContext(strategy);
         return reviewContext.components;
     }
@@ -22,9 +21,6 @@ const getStrategy = (strategyType): ReviewStrategy => {
             break;
         case '2':
             brandInstance = new Strategy2();
-            break;
-        case '3':
-            brandInstance = new Strategy3();
             break;
         default:
             brandInstance = new Strategy1();
@@ -57,17 +53,7 @@ class Strategy2 implements ReviewStrategy {
     getComponents() {
         return [
             new DynamicComponent(AboutYouComponent),
-            new DynamicComponent(FeesAndCancelationComponent),
-        ];
-    }
-}
-
-class Strategy3 implements ReviewStrategy {
-    getComponents() {
-        return [
-            new DynamicComponent(AboutYouComponent),
             new DynamicComponent(YourCarComponent),
-            new DynamicComponent(FeesAndCancelationComponent),
         ];
     }
 }
