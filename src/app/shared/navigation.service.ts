@@ -1,6 +1,9 @@
 
 export class NavigationService {
     constructor() {
+        if (window.location.hash) {
+            window.sessionStorage.setItem('insuranceType', window.location.hash);
+        }
         if (!window.sessionStorage.getItem('insuranceType')) {
             const insuranceType = window.location.hash || window['esure-env'].DEFAULT_INSURANCE_TYPE;
             window.sessionStorage.setItem('insuranceType', insuranceType);
