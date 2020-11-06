@@ -1,0 +1,8 @@
+<ng-container *ngFor="let item of data; let i = index">
+    <span style="background-color: lightgray; padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex;"
+        (click)="click(item, $event)">
+        <input style="cursor: pointer;" type="radio" id="item.name" name="dynamicSingleMultiselect"
+            [value]="item.name" [(ngModel)]="selectedValue" [checked]="item.isSelected" (click)="select(item, $event)" />
+        <label style="cursor: pointer; user-select: none;" for="item.name">{{item.name}}</label>
+    </span>
+</ng-container>

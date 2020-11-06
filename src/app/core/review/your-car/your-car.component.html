@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <img src="../../../../assets/images/Screenshot_3_2.png"/>
+ </div>
+  <div style="margin-left: 50px;">
+    <app-dynamic-single-select [inputList]="inputList" [strategy]="strategy"
+      (formValidityEvent)="formValidityEvent($event)"></app-dynamic-single-select>
+  </div>
+  <div style="margin-top: 10px;">
+    <button [disabled]="!isFormValid">next</button>
+  </div>

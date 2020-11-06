@@ -1,0 +1,15 @@
+<div>
+    <h1 style="position: fixed;
+    left: 18px;
+    height: 45px;
+    background-color: azure;
+    top: 45px;
+    right: 18px;
+    color: #096fae;
+    padding-left: 20px;">Summary</h1>
+    <div *ngFor="let dynamicComponent of dynamicComponentList" style="border: 1px solid #096fae;
+    padding: 10px; margin-bottom: 10px;">
+        <app-dynamic-loader [dynamicComponent]="dynamicComponent"></app-dynamic-loader>
+    </div>
+    <app-nav-buttons></app-nav-buttons>
+</div>
