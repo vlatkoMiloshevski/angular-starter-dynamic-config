@@ -8,6 +8,7 @@ import { ReviewService } from './review.service';
 export class ReviewComponent implements OnInit {
   @Input() data: any;
   dynamicComponentList: DynamicComponent[];
+  isNextDisabled: any = true;
 
   constructor(
     private reviewService: ReviewService,
@@ -15,6 +16,10 @@ export class ReviewComponent implements OnInit {
 
   ngOnInit() {
     this.dynamicComponentList = this.reviewService.getData();
+  }
+
+  outputEvent(event) {
+    this.isNextDisabled = event;
   }
 
 }

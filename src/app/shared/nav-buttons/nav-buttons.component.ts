@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { appRoutes } from 'src/app/app-routing.module';
 
@@ -7,6 +7,7 @@ import { appRoutes } from 'src/app/app-routing.module';
     templateUrl: './nav-buttons.component.html',
 })
 export class NavButtonsComponent implements OnInit {
+    @Input() isNextDisabled;
     nextState: Route;
     prevState: Route;
 

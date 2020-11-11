@@ -66,9 +66,8 @@ class Strategy2 implements LandingStrategy {
 class Strategy3 implements LandingStrategy {
     getComponents() {
         return [
-            new DynamicComponent(QuickCheckComponent),
             new DynamicComponent(WhatsCoveredComponent),
-            new DynamicComponent(KeepingYouInformedComponent),
+            new DynamicComponent(QuickCheckComponent),
         ];
     }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SelectedItemModel, selectedItemPropertyType } from 'src/app/shared/dynamic-single-select/dynamic-single-select.component';
 import { YourCarService } from './your-car.service';
 
@@ -7,6 +7,7 @@ import { YourCarService } from './your-car.service';
   templateUrl: './your-car.component.html',
 })
 export class YourCarComponent {
+  @Output() outputEvent: EventEmitter<any> = new EventEmitter();
   inputList: Array<SelectedItemModel>;
   strategy: string;
   isFormValid: any;
@@ -29,5 +30,12 @@ export class YourCarComponent {
 
   formValidityEvent(isFormValid) {
     this.isFormValid = isFormValid;
+    if (isFormValid) { return; }
+
+    this.outputEvent.emit(!this.isFormValid);
+  }
+
+  onNextClick() {
+    this.outputEvent.emit(!this.isFormValid);
   }
 }

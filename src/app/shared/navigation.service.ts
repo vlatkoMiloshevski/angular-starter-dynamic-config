@@ -57,6 +57,10 @@ class HomeStrategy implements NavigationStrategy {
                 loadChildren: () => import('../home/landing/landing.module').then(m => m.LandingModule),
             },
             {
+                path: 'review',
+                loadChildren: () => import('../home/review/review.module').then(m => m.ReviewModule),
+            },
+            {
                 path: 'payment',
                 loadChildren: () => import('../home/payment/payment.module').then(m => m.PaymentModule),
             },

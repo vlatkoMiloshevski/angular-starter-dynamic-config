@@ -7,5 +7,5 @@
       (formValidityEvent)="formValidityEvent($event)"></app-dynamic-single-select>
   </div>
   <div style="margin-top: 10px;">
-    <button [disabled]="!isFormValid">next</button>
+    <button [disabled]="!isFormValid" (click)="onNextClick()">next</button>
   </div>
