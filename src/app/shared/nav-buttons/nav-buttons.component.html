@@ -1,4 +1,6 @@
 <div style="margin-top: 50px;">
-    <button [style.display]="prevState ? 'inline-block' : 'none'" (click)="goBack()">back</button>
-    <button [style.display]="nextState ? 'inline-block' : 'none'" (click)="goNext()" [disabled]="isNextDisabled">next</button>
+    <button [style.display]="prevState ? 'inline-block' : 'none'" (click)="goBack()"
+        class="button is-info" style="margin-right:10px;">back</button>
+    <button [style.display]="nextState ? 'inline-block' : 'none'" (click)="goNext()" [disabled]="isNextDisabled"
+        class="button is-info">next</button>
 </div>
