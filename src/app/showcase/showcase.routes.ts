@@ -6,7 +6,7 @@ const routes: Routes = [
     {
         path: '',
         component: ShowcaseComponent,
-        data: { browserTitle: 'Quote Showcase' },
+        data: { browserTitle: 'Showcase' },
         canActivate: [],
     },
 ];

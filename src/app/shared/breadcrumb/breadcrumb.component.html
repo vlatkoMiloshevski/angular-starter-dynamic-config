@@ -1,0 +1,10 @@
+<div>
+    <span>{{activeRoute}} - step {{currentIndex + 1}} of {{routes.length}}</span>
+</div>
+<div>
+    <span *ngFor="let route of routes; let i = index"
+        [ngStyle]="{ 'background-color' : i > currentIndex ? 'lightgray' : i === currentIndex ? 'red' : 'green'}" style="    width: 10%;
+        height: 10px;
+        display: inline-block;
+        margin: 0 5px;"></span>
+</div>

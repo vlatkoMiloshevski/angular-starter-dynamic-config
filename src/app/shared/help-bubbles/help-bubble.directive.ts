@@ -5,19 +5,23 @@ import { Directive, Input, ElementRef, HostListener, Renderer2 } from '@angular/
 })
 export class HelpBubbleDirective {
   @Input('tooltip') tooltipTitle: string;
-  @Input() placement: string;
-  @Input() delay: number;
+  @Input() placement = 'top';
+  @Input() delay = 500;
   tooltip: HTMLElement;
-  offset = 10;
+  offset = 20;
+  wasInside: boolean;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
-  @HostListener('mouseenter') onMouseEnter() {
+  @HostListener('click') onMouseEnter() {
     if (!this.tooltip) { this.show(); }
+    this.wasInside = true;
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
-    if (this.tooltip) { this.hide(); }
+  @HostListener('window:resize', ['$event'])
+  @HostListener('document:click') onMouseLeave() {
+    if (this.tooltip && !this.wasInside) { this.hide(); }
+    this.wasInside = false;
   }
 
   show() {
@@ -29,6 +33,7 @@ export class HelpBubbleDirective {
   hide() {
     this.renderer.removeClass(this.tooltip, 'ng-tooltip-show');
     window.setTimeout(() => {
+      if (!this.tooltip) { return; }
       this.renderer.removeChild(document.body, this.tooltip);
       this.tooltip = null;
     }, this.delay);

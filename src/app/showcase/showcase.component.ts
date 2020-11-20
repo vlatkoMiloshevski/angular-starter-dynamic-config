@@ -5,7 +5,7 @@ import { selectedItemPropertyType } from '../shared/dynamic-single-select/dynami
     templateUrl: 'showcase.component.html',
 })
 export class ShowcaseComponent implements OnInit {
-    topTooltip: string;
+    tooltipText: string;
     firstInputList: { name: string; type: any; }[];
     secondInputList: { name: string; type: any; }[];
     firstStrategy: any;
@@ -52,7 +52,7 @@ export class ShowcaseComponent implements OnInit {
             { name: 'Car park - Public', type: selectedItemPropertyType.ADVANCED_SEARCH },
             { name: 'Garage - Work', type: selectedItemPropertyType.ADVANCED_SEARCH },
         ];
-        this.topTooltip = 'From time to time esure services Limited, trading as esure like to contact you with marketing messages by email, post, phone and through digital channels. Please see our Privacy Policy for full details. If you prefer not to receive these messages from us, you can unsubscribe here. ';
+        this.tooltipText = 'From time to time esure services Limited, trading as esure like to contact you with marketing messages by email, post, phone and through digital channels. Please see our Privacy Policy for full details. If you prefer not to receive these messages from us, you can unsubscribe here. ';
     }
 
     firstFormValidityEvent(data) {

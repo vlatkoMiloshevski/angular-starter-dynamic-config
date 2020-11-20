@@ -1,3 +1,5 @@
+<app-breadcrumb></app-breadcrumb>
+
 <app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
     (formValidityEvent)="firstFormValidityEventNoAdvanced($event)"></app-dynamic-single-select>
 
@@ -11,6 +13,10 @@
     (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
 
 <div class="tooltip-example" style="margin-left: 10px;">
-    <p>This is a tooltip with a dummy data <i [tooltip]="topTooltip" placement="top" delay="500"
-            class="fa fa-info-circle blue"></i></p>
+    <p>This is a tooltip with a dummy data
+        <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
+    </p>
 </div>
+
+
+<app-nav-buttons></app-nav-buttons>
