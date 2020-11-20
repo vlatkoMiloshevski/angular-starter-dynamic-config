@@ -1,0 +1,16 @@
+<app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
+    (formValidityEvent)="firstFormValidityEventNoAdvanced($event)"></app-dynamic-single-select>
+
+<app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
+    (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
+
+<app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
+    (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
+
+<app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
+    (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
+
+<div class="tooltip-example" style="margin-left: 10px;">
+    <p>This is a tooltip with a dummy data <i [tooltip]="topTooltip" placement="top" delay="500"
+            class="fa fa-info-circle blue"></i></p>
+</div>

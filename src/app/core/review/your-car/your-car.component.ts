@@ -28,9 +28,9 @@ export class YourCarComponent {
     ];
   }
 
-  formValidityEvent(isFormValid) {
-    this.isFormValid = isFormValid;
-    if (isFormValid) { return; }
+  formValidityEvent(data) {
+    this.isFormValid = data.isFormValid;
+    if (this.isFormValid) { return; }
 
     this.outputEvent.emit(!this.isFormValid);
   }

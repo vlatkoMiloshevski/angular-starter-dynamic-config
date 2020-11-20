@@ -22,7 +22,7 @@ export interface SelectedItemModel {
 export class DynamicSingleSelectComponent implements OnInit {
     @Input() inputList: SelectedItemModel[];
     @Input() strategy: string;
-    @Output() formValidityEvent: EventEmitter<boolean> = new EventEmitter();
+    @Output() formValidityEvent: EventEmitter<any> = new EventEmitter();
 
     form: FormGroup;
     strategyComponent: DynamicComponent;
@@ -43,7 +43,7 @@ export class DynamicSingleSelectComponent implements OnInit {
         this.form.get('selectedItem').setValue(this.inputList.find(x => x === item));
         this.inputList.forEach(x => x.isSelected = false);
         this.inputList.find(x => x === item).isSelected = true;
-        this.formValidityEvent.emit(true);
+        this.formValidityEvent.emit({ isFormValid: true, selectedValue: this.form.get('selectedItem').value });
     }
 
     selectOther() {
@@ -53,7 +53,7 @@ export class DynamicSingleSelectComponent implements OnInit {
         this.form.get('selectedItem').setValue(this.inputList.find(x => x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH));
         this.inputList.forEach(x => x.isSelected = false);
         this.inputList.find(x => x.type === selectedItemPropertyType.LOAD_ADVANCED_SEARCH).isSelected = true;
-        this.formValidityEvent.emit(false);
+        this.formValidityEvent.emit({ isFormValid: false, selectedValue: this.form.get('selectedItem').value });
     }
 
     get primaryListItems(): Array<any> {
@@ -84,7 +84,7 @@ export class DynamicSingleSelectComponent implements OnInit {
         this.form.get('selectedItem').setValue(advancedItem);
         this.inputList.forEach(x => x.isSelected = false);
         this.inputList.find(x => x === advancedItem).isSelected = true;
-        this.formValidityEvent.emit(true);
+        this.formValidityEvent.emit({ isFormValid: true, selectedValue: this.form.get('selectedItem').value });
     }
 
 }

@@ -64,6 +64,10 @@ class HomeStrategy implements NavigationStrategy {
                 path: 'payment',
                 loadChildren: () => import('../home/payment/payment.module').then(m => m.PaymentModule),
             },
+            {
+                path: 'showcase',
+                loadChildren: () => import('../showcase/showcase.module').then(m => m.ShowcaseModule),
+            },
         ];
     }
 }

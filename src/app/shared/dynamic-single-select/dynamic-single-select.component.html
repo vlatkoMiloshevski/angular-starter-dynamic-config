@@ -1,21 +1,21 @@
-<div style="border: 2px solid #096fae; padding: 10px;">
+<div>
     <div>
         <ng-container *ngFor="let item of primaryListItems">
-            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none;"
-                [ngStyle]="{'background-color': item.isSelected ? 'gray' : 'lightgray'}" (click)="selectPrimary(item)">
+            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none; border: 1px solid black; border-radius: 5px;"
+                [ngStyle]="{'background-color': item.isSelected ? '#6aa74e' : 'white', 'color': item.isSelected ? 'white' : 'black', 'border': item.isSelected ? '1px solid #6aa74e' : '1px solid black'}" (click)="selectPrimary(item)">
                 {{item.name}}
             </span>
         </ng-container>
 
-        <ng-container>
-            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none;"
-                [ngStyle]="{'background-color': otherItem?.isSelected ? 'gray' : 'lightgray'}" (click)="selectOther()">
+        <ng-container *ngIf="otherItem">
+            <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none; border: 1px solid black; border-radius: 5px;"
+                [ngStyle]="{'background-color': otherItem?.isSelected ? '#6aa74e' : 'white', 'color': otherItem.isSelected ? 'white' : 'black', 'border': otherItem.isSelected ? '1px solid #6aa74e' : '1px solid black'}" (click)="selectOther()">
                 other
             </span>
         </ng-container>
     </div>
 
-    <div>
+    <div *ngIf="otherItem">
         <app-dynamic-loader *ngIf="otherOrAdvancedItem?.isSelected" [dynamicComponent]="strategyComponent"
             (outputEvent)="outputEvent($event)">
         </app-dynamic-loader>
