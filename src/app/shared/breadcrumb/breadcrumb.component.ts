@@ -15,7 +15,7 @@ export class BreadcrumbComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.routes = this.router.config.map(x => x.data.name);
+        this.routes = this.router.config.filter(x => x.data.isNavIncluded).map(x => x.data.name);
         this.currentIndex = this.router.config.findIndex(route => `/${route.path}` === this.router.url);
         this.activeRoute = this.router.config.find(route => `/${route.path}` === this.router.url).data.name;
     }

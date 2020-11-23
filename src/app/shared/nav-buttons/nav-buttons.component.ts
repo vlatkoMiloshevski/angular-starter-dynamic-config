@@ -8,6 +8,8 @@ import { appRoutes } from 'src/app/app-routing.module';
 })
 export class NavButtonsComponent implements OnInit {
     @Input() isNextDisabled;
+    @Input() isPrevHidden: boolean;
+    @Input() isNextHidden: boolean;
     nextState: Route;
     prevState: Route;
 
