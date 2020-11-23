@@ -1,5 +1,5 @@
 <ng-container *ngFor="let item of data">
-    <span style="padding: 10px 20px; margin: 10px; cursor: pointer; display: inline-flex; user-select: none; border: 1px solid black; border-radius: 5px;"
+    <span style="padding: 10px 20px;     margin: 10px 10px 0px 0px;; cursor: pointer; display: inline-flex; user-select: none; border: 1px solid black; border-radius: 5px;"
         [ngStyle]="{'background-color': item.isSelected ? '#6aa74e' : 'white', 'color': item.isSelected ? 'white' : 'black', 'border': item.isSelected ? '1px solid #6aa74e' : '1px solid black'}" (click)="selectAdvanced(item)">
         {{item.name}}
     </span>
