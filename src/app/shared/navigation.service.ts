@@ -67,11 +67,6 @@ class HomeStrategy implements NavigationStrategy {
                 loadChildren: () => import('../home/payment/payment.module').then(m => m.PaymentModule),
                 data: { name: 'Payment Page', isNavIncluded: true },
             },
-            {
-                path: 'showcase',
-                loadChildren: () => import('../showcase/showcase.module').then(m => m.ShowcaseModule),
-                data: { name: 'Showcase Page', isNavIncluded: false },
-            },
         ];
     }
 }
@@ -82,17 +77,22 @@ class MotorStrategy implements NavigationStrategy {
             {
                 path: '',
                 loadChildren: () => import('../motor/landing/landing.module').then(m => m.LandingModule),
-                data: { name: 'Landing Page' },
+                data: { name: 'Landing Page', isNavIncluded: true },
             },
             {
                 path: 'review',
                 loadChildren: () => import('../motor/review/review.module').then(m => m.ReviewModule),
-                data: { name: 'Review Page' },
+                data: { name: 'Review Page', isNavIncluded: true },
             },
             {
                 path: 'payment',
                 loadChildren: () => import('../motor/payment/payment.module').then(m => m.PaymentModule),
-                data: { name: 'Payment Page' },
+                data: { name: 'Payment Page', isNavIncluded: true },
+            },
+            {
+                path: 'showcase',
+                loadChildren: () => import('../showcase/showcase.module').then(m => m.ShowcaseModule),
+                data: { name: 'Showcase Page', isNavIncluded: false },
             },
         ];
     }
@@ -104,17 +104,17 @@ class MulticarStrategy implements NavigationStrategy {
             {
                 path: '',
                 loadChildren: () => import('../multicar/landing/landing.module').then(m => m.LandingModule),
-                data: { name: 'Landing Page' },
+                data: { name: 'Landing Page', isNavIncluded: true },
             },
             {
                 path: 'review',
                 loadChildren: () => import('../multicar/review/review.module').then(m => m.ReviewModule),
-                data: { name: 'Review Page' },
+                data: { name: 'Review Page', isNavIncluded: true },
             },
             {
                 path: 'payment',
                 loadChildren: () => import('../multicar/payment/payment.module').then(m => m.PaymentModule),
-                data: { name: 'Payment Page' },
+                data: { name: 'Payment Page', isNavIncluded: true },
             },
         ];
     }

@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./standard-page.component.scss'],
 })
 export class StandardPageComponent implements OnInit {
+    insuranceType: string;
     constructor(
     ) { }
 
     ngOnInit() {
-
+        this.insuranceType = window.sessionStorage.getItem('insuranceType');
     }
 }

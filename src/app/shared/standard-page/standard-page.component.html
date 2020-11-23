@@ -4,8 +4,8 @@
             <div class="header-container"></div>
             <div class="main-container">
                 <div class="header-content">
-                    <span style="float:left;">menu</span>
-                    <span style="float:right;">logo</span>
+                    <span style="float:left;">{{insuranceType}}</span>
+                    <span style="float:right;">header menu</span>
                 </div>
                 <div class="main-content">
                     <ng-content select=".breadcrumb"></ng-content>
@@ -15,11 +15,8 @@
                         <div class="main-column">
                             <ng-content></ng-content>
                         </div>
-                        <div class="side-column is-hidden-mobile">
-                            <div class="side-content">
-                                <app-side-bar></app-side-bar>
-                            </div>
-                        </div>
+
+                        <ng-content select=".sidebar"></ng-content>
                     </div>
                 </div>
             </div>
@@ -27,7 +24,7 @@
         <div class="footer-container">
             <div class="wrapper-container">
                 <div class="footer-content">
-                    <span style="float:left;">footer</span>
+                    <span style="float:left;">footer menu</span>
                     <span style="float:right;">logo</span>
                 </div>
             </div>
