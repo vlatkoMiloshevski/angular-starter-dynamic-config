@@ -1,99 +1,34 @@
-<main>
-    <div class="layout-container">
-        <div class="wrapper-container">
-            <div class="header-container"></div>
-            <div class="main-container">
-                <div class="header-content">
-                    <span style="float:left;">menu</span>
-                    <span style="float:right;">logo</span>
-                </div>
-                <div class="main-content">
-                    <div style="margin: 10px 0 30px;">
-                        <app-breadcrumb></app-breadcrumb>
-                    </div>
-
-                    <div style="display: flex;">
-                        <div class="main-column">
-
-                            <div style="margin-bottom:10px;">
-                                <h1 style="font-size: xx-large;">Let's stat with a few quick questions</h1>
-                            </div>
-
-                            <div style="margin-bottom:10px;">
-                                <app-dynamic-single-select [inputList]="firstInputListNoAdvanced"
-                                    [strategy]="firstStrategy"
-                                    (formValidityEvent)="firstFormValidityEventNoAdvanced($event)">
-                                </app-dynamic-single-select>
-                            </div>
-
-                            <div style="margin-bottom:10px;">
-                                <app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
-                                    (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
-                            </div>
-
-                            <div style="margin-bottom:10px;">
-                                <app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
-                                    (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
-                            </div>
-
-                            <div style="margin-bottom:10px;">
-                                <app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
-                                    (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
-                            </div>
-
-                            <div class="tooltip-example" style="margin-bottom:10px;">
-                                <p>This is a tooltip with a dummy data
-                                    <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
-                                </p>
-                            </div>
-
-                            <div style="margin-bottom:10px;">
-                                We and our partners store and/or access information on a device, such as cookies and
-                                process personal data, such as unique identifiers and standard information sent by a
-                                device
-                                for personalised ads and content, ad and content measurement, and audience insights, as
-                                well
-                                as to develop and improve products.
-                                <br />
-                                <br />
-                                With your permission we and our partners may use precise geolocation data and
-                                identification through device scanning. You may click to consent to our and our
-                                partners’ processing as described above. Alternatively you may access more detailed
-                                information and change your preferences before consenting or to refuse consenting.
-                                Please note that some processing of your personal data may not require your consent, but
-                                you have a right to object to such processing. Your preferences will apply to this
-                                website only. You can change your preferences at any time by returning to this site or
-                                visit our privacy policy.
-                            </div>
-
-                            <app-nav-buttons></app-nav-buttons>
-                        </div>
-                        <div class="side-column is-hidden-mobile">
-                            <div class="side-content">We and our partners store and/or access information on a device, such as cookies and
-                                process personal data, such as unique identifiers and standard information sent by a
-                                device
-                                for personalised ads and content, ad and content measurement, and audience insights, as
-                                well
-                                as to develop and improve products.
-                                <br />
-                                <br />
-                                With your permission we and our partners may use precise geolocation data and
-                                identification
-                                through device scanning. You may click to consent to our and our partners’ processing as
-                                described above. Alternatively you may access more detailed information and change your
-                                preferences before consenting or to refuse consenting.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-container">
-            <div class="wrapper-container">
-                <div class="footer-content">
-                    <span style="float:left;">footer</span>
-                    <span style="float:right;">logo</span>
-                </div>
-            </div>
-        </div>
+<app-standard-page>
+    <div style="margin-bottom:10px;">
+        <h1 style="font-size: xx-large;">Let's stat with a few quick questions</h1>
     </div>
-</main>
+
+    <div style="margin-bottom:10px;">
+        <app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
+            (formValidityEvent)="firstFormValidityEventNoAdvanced($event)">
+        </app-dynamic-single-select>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
+            (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
+            (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
+            (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
+    </div>
+
+    <div class="tooltip-example" style="margin-bottom:10px;">
+        <p>This is a tooltip with a dummy data
+            <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
+        </p>
+    </div>
+
+    <app-nav-buttons></app-nav-buttons>
+</app-standard-page>

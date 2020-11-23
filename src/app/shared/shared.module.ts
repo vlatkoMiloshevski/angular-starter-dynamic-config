@@ -11,19 +11,24 @@ import { NavButtonsComponent } from './nav-buttons/nav-buttons.component';
 import { HelpBubbleDirective } from './help-bubbles/help-bubble.directive';
 import { InfoButtonComponent } from './info-button/info-button.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { StandardPageComponent } from './standard-page/standard-page.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
+const dependencies = [
+    NavButtonsComponent,
+    DynamicSingleSelectComponent,
+    Strategy1Component,
+    Strategy2Component,
+    Strategy3Component,
+    InfoButtonComponent,
+    HelpBubbleDirective,
+    BreadcrumbComponent,
+    StandardPageComponent,
+    SideBarComponent,
+];
 
 @NgModule({
-    declarations: [
-        NavButtonsComponent,
-        DynamicSingleSelectComponent,
-        Strategy1Component,
-        Strategy2Component,
-        Strategy3Component,
-        InfoButtonComponent,
-        HelpBubbleDirective,
-        BreadcrumbComponent,
-    ],
+    declarations: [...dependencies],
     providers: [
         DynamicSingleSelectService,
     ],
@@ -33,22 +38,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
         ReactiveFormsModule,
         DynamicModule,
     ],
-    entryComponents: [
-        NavButtonsComponent,
-        DynamicSingleSelectComponent,
-        Strategy1Component,
-        Strategy2Component,
-        Strategy3Component,
-    ],
-    exports: [
-        NavButtonsComponent,
-        DynamicSingleSelectComponent,
-        Strategy1Component,
-        Strategy2Component,
-        Strategy3Component,
-        InfoButtonComponent,
-        HelpBubbleDirective,
-        BreadcrumbComponent,
-    ]
+    entryComponents: [...dependencies],
+    exports: [...dependencies],
 })
 export class SharedModule { }
