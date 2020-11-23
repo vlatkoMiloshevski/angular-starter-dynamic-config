@@ -8,16 +8,18 @@
                     <span style="float:right;">logo</span>
                 </div>
                 <div class="main-content">
-                    <div style="margin: 10px 0 30px;">
-                        <app-breadcrumb></app-breadcrumb>
-                    </div>
+                    <ng-content select=".breadcrumb"></ng-content>
 
                     <div style="display: flex;">
 
                         <div class="main-column">
                             <ng-content></ng-content>
                         </div>
-                        <app-side-bar></app-side-bar>
+                        <div class="side-column is-hidden-mobile">
+                            <div class="side-content">
+                                <app-side-bar></app-side-bar>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
