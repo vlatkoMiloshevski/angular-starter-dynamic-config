@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { ModalComponent } from '../modal.component';
 import { ModalService } from '../modal.service';
 import { NgRedux } from '@angular-redux/store';
-import { IAppState } from 'src/app/store/app.store';
+import { IAppState } from 'src/app/store/store.actions';
 
 @Component({
     selector: 'app-test-modal',

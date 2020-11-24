@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ModalModel } from './modal.data';
 import { ModalService } from './modal.service';
@@ -14,18 +14,32 @@ export class RootModalComponent implements OnInit, OnDestroy {
 
   constructor(
     private modalService: ModalService,
+    private renderer: Renderer2,
   ) { }
 
   ngOnInit() {
     this.modalService
       .getModal()
-      .subscribe(
-        activeModal => this.modal = activeModal,
-      );
+      .subscribe(activeModal => {
+        this.modal = activeModal;
+        if (this.modal) {
+          this.renderer.addClass(document.documentElement, 'no-scroll');
+        } else {
+          this.renderer.removeClass(document.documentElement, 'no-scroll');
+        }
+      });
   }
 
   closeModal(): void {
     this.modalService.closeModal();
+  }
+
+  @HostListener('window:resize', ['$event']) clickout() {
+    if (!(this.modal && this.modal.data)) {
+      return;
+    }
+    this.modal.data.isResized = true;
+    this.closeModal();
   }
 
   ngOnDestroy(): void {

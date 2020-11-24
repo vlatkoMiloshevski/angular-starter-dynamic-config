@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { selectedItemPropertyType } from '../shared/dynamic-single-select/dynamic-single-select.component';
+import { ModalService } from '../shared/modal/modal.service';
+import { TestModalComponent } from '../shared/modal/test-modal/test-modal.component';
+import { DrawerService } from '../shared/root-drawer/drawer.service';
+import { TestDrawerComponent } from '../shared/root-drawer/test-drawer/test-drawer.component';
 
 @Component({
     templateUrl: 'showcase.component.html',
@@ -15,6 +19,8 @@ export class ShowcaseComponent implements OnInit {
     thirdInputList: { name: string; type: selectedItemPropertyType; }[];
     firstInputListNoAdvanced: { name: string; type: selectedItemPropertyType; }[];
     constructor(
+        private drawerService: DrawerService,
+        private modalService: ModalService,
     ) { }
 
     ngOnInit() {
@@ -70,5 +76,13 @@ export class ShowcaseComponent implements OnInit {
 
     firstFormValidityEventNoAdvanced(data) {
         console.log(data);
+    }
+
+    openDrawer() {
+        this.drawerService.openDrawer(TestDrawerComponent);
+    }
+
+    openModal() {
+        this.modalService.openModal(TestModalComponent, { isUpdateRequired: true });
     }
 }

@@ -1,10 +1,13 @@
 import { NgReduxRouterModule } from '@angular-redux/router';
-import { NgReduxModule } from '@angular-redux/store';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { store } from './store/app.store';
+import { IAppState } from './store/store.actions';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     NgReduxModule,
     NgReduxRouterModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   entryComponents: [
@@ -24,4 +28,9 @@ import { AppComponent } from './app.component';
     AppComponent,
   ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(redux: NgRedux<IAppState>) {
+    redux.provideStore(store);
+  }
+}
+

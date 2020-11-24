@@ -15,6 +15,7 @@ import { StandardPageComponent } from './standard-page/standard-page.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { RootModalComponent } from './modal/root-modal.component';
 import { ModalService } from './modal/modal.service';
+import { RootDrawerComponent } from './root-drawer/root-drawer.component';
 
 const dependencies = [
     NavButtonsComponent,
@@ -28,6 +29,7 @@ const dependencies = [
     StandardPageComponent,
     SideBarComponent,
     RootModalComponent,
+    RootDrawerComponent,
 ];
 
 @NgModule({

@@ -1,0 +1,28 @@
+<div id="drawer-overlay" class="( drawer-overlay )" [class.is-active]="overlayActive" (click)="closeRootDrawer()"></div>
+<!-- <es-loading-box data-qa-id="loadingBox"></es-loading-box> -->
+<div id="drawer-wrapper-id" class="( drawer-wrapper )" [class.is-active]="overlayActive">
+  <div id="drawer-content-id-{{ drawer.id }}" class="( drawer-content )"
+    *ngFor="let drawer of drawers; trackBy: trackDrawer" [@drawerSlide] (@drawerSlide.done)="drawerSlideComplete()">
+    <button *ngIf="!drawer.config.updateIsRequired"
+      class="delete is-large has-background-white closeButton-{{ drawer.id }}" (click)="closeDrawer(drawer.id)"
+      data-qa-id="closeDrawerButtonX"></button>
+    <template *ngComponentOutlet="drawer.component; injector: drawer.injector"></template>
+  </div>
+
+  <div class="( drawer-save )" [class.active]="popupVisible">
+    <div data-qa-id="addressLookUpPopUp" class="confirm">
+      <div class="section ( popup-drawer )">
+        <h2 data-qa-id="saveChangesPopUpHeader" class="title">Are you sure you want to discard your changes?</h2>
+      </div>
+      <div class="buttons">
+        <button class="( drawer-btn cancel )" data-qa-id="saveChangesPopUpDiscardButton"
+          (click)="saveDrawerChanges(false, showSaveChangesId)">
+          Discard
+        </button>
+        <button data-qa-id="saveChangesPopUpKeepButton" class="( drawer-btn )" (click)="popupVisible = false">
+          Keep
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

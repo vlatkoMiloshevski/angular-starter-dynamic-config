@@ -17,6 +17,6 @@ export class InfoButtonComponent implements OnInit {
     }
 
     openModal() {
-        this.modalService.openModal(TestModalComponent, { isUpdateRequired: true });
+        this.modalService.openModal(TestModalComponent);
     }
 }

@@ -1,0 +1,22 @@
+<div class="( header )">
+    <h1 data-qa-id="claimsDrawerHeader" class="title is-size-4">
+        test drawer
+    </h1>
+    <div class="( padding-top-10 padding-bottom-0 font-weight-500 )">
+        test drawer
+    </div>
+</div>
+
+<div class="drawer-main">
+    test drawer
+</div>
+
+<div class="( drawer-cta )">
+    <button class="( drawer-btn cancel )" type="button" (click)="dismissDrawer()" data-qa-id="cancelButton"
+        [disabled]="submitting">
+        Cancel
+    </button>
+    <button class="( drawer-btn )" (click)="dismissDrawer()" data-qa-id="updateButton">
+        Update
+    </button>
+</div>
