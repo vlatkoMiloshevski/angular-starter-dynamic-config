@@ -21,7 +21,11 @@ const getStrategy = (strategyType): LandingStrategy => {
             brandInstance = new Strategy1();
             break;
         case '2':
-            brandInstance = new Strategy2();
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                brandInstance = new Strategy2();
+            } else {
+                brandInstance = new Strategy3();
+            }
             break;
         case '3':
             brandInstance = new Strategy3();
@@ -67,7 +71,6 @@ class Strategy3 implements LandingStrategy {
     getComponents() {
         return [
             new DynamicComponent(WhatsCoveredComponent),
-            new DynamicComponent(QuickCheckComponent),
         ];
     }
 }
