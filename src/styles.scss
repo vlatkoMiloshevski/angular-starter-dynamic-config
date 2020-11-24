@@ -60,9 +60,96 @@
       color: #096fae;
   }
 
+  .display-block {
+    display: block;
+  }
 
   .mobile-hidden {
     @media screen and (max-width: 767px) {
-      display: none;
+      display: none !important;
     }
   }
+  .tablet-hidden {
+    @media screen and (min-width: 767px) {
+      display: none !important;
+    }
+  }
+
+
+  // modal
+
+  @keyframes slide-in {
+    from {
+      bottom: -100%;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+  
+  .modal {
+    .modal-content, .modal-card {
+      max-width: 300px;
+    }
+  
+    .modal-card {
+      @include mobile {
+        position: absolute;
+        right: 0;
+        bottom: -100%;
+        margin: 0;
+        max-width: 500px;
+        -webkit-transition: bottom 0.8s;
+        -moz-transition: bottom 0.8s;
+        -ms-transition: bottom 0.8s;
+        -o-transition: bottom 0.8s;
+        transition: bottom 0.8s;
+      }
+    }
+  
+    .mobile-modal-show {
+      animation: slide-in 0.8s forwards;
+    }
+  
+    .modal-card-title {
+        flex-shrink: 1;
+        font-size: 20px;
+    }
+  
+    .modal-card-body {
+      font-size: 16px;
+      .content {
+        max-height: 200px;
+        overflow: auto;
+      }
+    }
+  
+    .modal-card-foot {
+      .drawer-btn {
+        font-size: 16px;
+        height: auto;
+      }
+    }
+  
+    .modal-button-wrapper {
+      width: 300px;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+  
+      .drawer-btn, .primary, .center {
+        margin: 0 auto;
+      }
+    }
+  
+  }
+  
+  .three-d-modal {
+    .modal-card {
+      position: fixed;
+      top: 25px;
+    }
+  }
+
+  
+  //

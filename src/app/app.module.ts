@@ -1,3 +1,5 @@
+import { NgReduxRouterModule } from '@angular-redux/router';
+import { NgReduxModule } from '@angular-redux/store';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +14,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
+    NgReduxModule,
+    NgReduxRouterModule,
   ],
   providers: [],
   entryComponents: [

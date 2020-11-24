@@ -1,0 +1,7 @@
+<div class="modal" *ngIf="modal !== null && modal !== undefined"
+    [class.is-active]="modal !== null && modal !== undefined">
+    <div class="modal-background" (click)="closeModal()"></div>
+    <div class="modal-card" [class.mobile-modal-show]="modal !== null && modal !== undefined">
+        <template *ngComponentOutlet="modal.component; injector: modal.injector"></template>
+    </div>
+</div>

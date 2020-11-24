@@ -13,6 +13,8 @@ import { InfoButtonComponent } from './info-button/info-button.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { StandardPageComponent } from './standard-page/standard-page.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { RootModalComponent } from './modal/root-modal.component';
+import { ModalService } from './modal/modal.service';
 
 const dependencies = [
     NavButtonsComponent,
@@ -25,12 +27,14 @@ const dependencies = [
     BreadcrumbComponent,
     StandardPageComponent,
     SideBarComponent,
+    RootModalComponent,
 ];
 
 @NgModule({
     declarations: [...dependencies],
     providers: [
         DynamicSingleSelectService,
+        ModalService,
     ],
     imports: [
         CommonModule,
