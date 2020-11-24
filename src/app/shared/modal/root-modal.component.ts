@@ -38,8 +38,9 @@ export class RootModalComponent implements OnInit, OnDestroy {
     if (!(this.modal && this.modal.data)) {
       return;
     }
-    this.modal.data.isResized = true;
-    this.closeModal();
+    if (this.modal.data.isClosedOnResize) {
+      this.closeModal();
+    }
   }
 
   ngOnDestroy(): void {

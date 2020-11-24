@@ -10,7 +10,7 @@ export class ModalModel {
 export class ModalData {
     isUpdateRequired?: boolean;
     additionalData?: any;
-    isResized?: boolean;
+    isClosedOnResize?: boolean;
 }
 
 export class ModalConfig {

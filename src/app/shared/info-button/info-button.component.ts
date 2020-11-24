@@ -17,6 +17,6 @@ export class InfoButtonComponent implements OnInit {
     }
 
     openModal() {
-        this.modalService.openModal(TestModalComponent);
+        this.modalService.openModal(TestModalComponent, { isClosedOnResize: true });
     }
 }

@@ -45,6 +45,6 @@ export class ModalService {
     }
 
     isUpdateRequired() {
-        return this.activeModal.data && this.activeModal.data.isUpdateRequired && !this.activeModal.data.isResized;
+        return this.activeModal.data && this.activeModal.data.isUpdateRequired;
     }
 }
