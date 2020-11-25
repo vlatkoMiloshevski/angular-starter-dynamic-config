@@ -2,10 +2,11 @@
   <div>
     <img src="../../../../assets/images/Screenshot_3_2.png" />
   </div>
-  <div style="margin-left: 50px;">
+  <div style="margin-left: 27px;">
     <app-dynamic-single-select [inputList]="inputList" [strategy]="strategy"
       (formValidityEvent)="formValidityEvent($event)"></app-dynamic-single-select>
   </div>
+  <br />
   <div style="margin-top: 10px;">
     <button [disabled]="!isFormValid" [ngClass]="{'btn-disabled' : !isFormValid}" class="btn btn-primary"
       (click)="onNextClick()">next</button>
