@@ -4,6 +4,8 @@ import { YourCarComponent } from 'src/app/core/review/your-car/your-car.componen
 import { DynamicModule } from 'src/app/dynamic-module-loader/dynamic.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { YourCarService } from './your-car/your-car.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -15,6 +17,7 @@ import { YourCarService } from './your-car/your-car.service';
     imports: [
         DynamicModule,
         SharedModule,
+        CommonModule,
     ],
     entryComponents: [
         AboutYouComponent,
