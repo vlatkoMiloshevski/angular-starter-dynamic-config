@@ -3,46 +3,60 @@
         <div style="margin-top:50px;"></div>
     </ng-container>
 
-    <div style="margin-bottom:10px;">
-        <h1 style="font-size: xx-large;">Let's start with a few quick questions</h1>
+    <div style="margin-bottom:10px">
+        <h1 style="font-size: xx-large; font-weight: 500; color: #096fae;">Technical documentation (showcase)</h1>
+        <h1 style="font-size: x-large; color: #096fae;">Common components and controls</h1>
     </div>
+    <br />
 
+    <h1 style="text-transform: uppercase; font-weight: 500;">Single select with & without advanced list options</h1>
+    <br />
     <div style="margin-bottom:10px;">
         <app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
             (formValidityEvent)="firstFormValidityEventNoAdvanced($event)">
         </app-dynamic-single-select>
     </div>
+    <br />
 
     <div style="margin-bottom:10px;">
+        <span>[radio buttons]</span>
         <app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
             (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
     </div>
+    <br />
 
     <div style="margin-bottom:10px;">
+        <span>[select options]</span>
         <app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
             (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
     </div>
+    <br />
 
     <div style="margin-bottom:10px;">
+        <span>[button fields]</span>
         <app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
             (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
     </div>
+    <br />
+    <br />
 
-    <div class="tooltip-example" style="margin-bottom:10px;">
+    <h1 style="text-transform: uppercase; font-weight: 500;">Extended form elements</h1>
+    <br />
+    <div class="tooltip-example" style="margin-bottom:10px; font-size: medium">
         <p>This is a tooltip with a dummy data
             <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
         </p>
     </div>
 
-    <div class="tooltip-example" style="margin-bottom:10px;">
+    <div class="tooltip-example" style="margin-bottom:10px; font-size: large">
         <p>This is a modal with a dummy data
             <u (click)="openModal()" style="cursor:pointer;">open modal</u>
         </p>
     </div>
 
-    <div style="margin-bottom:10px;">
+    <div style="margin-bottom:10px; font-size: larger">
         <p>This is a drawer with a dummy data
-            <u (click)="openDrawer()" style="cursor:pointer;">open drawer</u>
+            <u (click)="openDrawer()" style="cursor:pointer">open drawer</u>
         </p>
     </div>
 

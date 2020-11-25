@@ -8,6 +8,9 @@ html {
   }
 }
 
+
+// tooltip
+
 .tooltip-example {
   }
   .tooltip-example > div {
@@ -19,11 +22,12 @@ html {
     text-align: center;
     color: black;
     padding: 3px 8px;
-    background: lightgray;
+    background: #ededed;
     border-radius: 10px;
     z-index: 1000;
     opacity: 0;
-    box-shadow: 0px 4px 11px 1px black;
+    box-shadow: 0px 8px 18px 2px black;
+    border: 2px solid black;
   }
   .ng-tooltip:after {
     content: "";
@@ -62,9 +66,45 @@ html {
     opacity: 1;
   }
 
-  .blue {
-      color: #096fae;
+// color
+
+.blue-color {
+  color: #096fae;
+}
+
+// button
+
+.btn {
+    padding: 10px 40px;
+    border-radius: 5px;
+    border: 2px solid lightgray;
+    color: #096fae;
+    background-color: white;
+    outline:none;
+    cursor: pointer;
+    
+  &.btn-select{
+    color:  green !important;
   }
+  &.btn-primary{
+    color:  white !important;
+    background-color: #096fae !important;
+    border: 2px solid #096fae;
+  }
+  &.btn-disabled{
+    cursor: default;
+    opacity: 0.5;
+    user-select: none;
+    color: gray !important;
+    background-color: white !important;
+    border: 2px solid lightgray;
+  }
+  &::after{
+    border: 2px solid lightgray;
+  }
+}
+
+  // mobile & tablet media queries for display
 
   .display-block {
     display: block;
@@ -80,7 +120,38 @@ html {
       display: none !important;
     }
   }
-
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]+label:before {
+    content: "";
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    margin-right: 3px;
+    /* background-color only for content */
+    border: 2px solid #bbbbbb;
+    background-color: white;
+    border-radius: 50%;
+  }
+/* appearance for checked radiobutton */
+input[type="radio"]:checked + label:before {
+  background-color: #6AA74E;
+  border: 2px solid #6AA74E;
+  background-clip: content-box;
+}
+/* optional styles, I'm using this for centering radiobuttons */
+label {
+  display: flex;
+  align-items: center;
+}
 
   // modal
 
