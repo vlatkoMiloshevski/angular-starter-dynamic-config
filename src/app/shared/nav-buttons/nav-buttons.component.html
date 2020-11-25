@@ -1,6 +1,6 @@
 <div style="margin-top: 50px;">
     <button [style.display]="prevState ? 'inline-block' : 'none'" (click)="goBack()" *ngIf="!isPrevHidden"
-        class="button is-info" style="margin-right:10px;">&#10094; back</button>
+        class="button" style="margin-right:10px; color: #3298dc">&#10094; back</button>
     <button [style.display]="nextState ? 'inline-block' : 'none'" (click)="goNext()" *ngIf="!isNextHidden"
         [disabled]="isNextDisabled" class="button is-info">continue &#10095;</button>
 </div>
