@@ -13,10 +13,10 @@
 
 <div class="( drawer-cta )">
     <button class="( drawer-btn cancel )" type="button" (click)="dismissDrawer()" data-qa-id="cancelButton"
-        [disabled]="submitting">
+        [disabled]="submitting" style="user-select: none;">
         Cancel
     </button>
-    <button class="( drawer-btn )" (click)="dismissDrawer()" data-qa-id="updateButton">
+    <button class="( drawer-btn )" (click)="dismissDrawer()" data-qa-id="updateButton" style="user-select: none;">
         Update
     </button>
 </div>

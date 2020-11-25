@@ -1,6 +1,8 @@
 <div style="margin-top: 50px;">
-    <button [style.display]="prevState ? 'inline-block' : 'none'" (click)="goBack()" *ngIf="!isPrevHidden"
-        class="btn" style="margin-right:10px">&#10094; Back</button>
+    <button [style.display]="prevState ? 'inline-block' : 'none'" (click)="goBack()" *ngIf="!isPrevHidden" class="btn"
+        style="margin-right:10px; user-select: none;">&#10094; Back</button>
     <button [style.display]="nextState ? 'inline-block' : 'none'" (click)="goNext()" *ngIf="!isNextHidden"
-        [disabled]="isNextDisabled" [ngClass]="{'btn-disabled' : isNextDisabled}" class="btn btn-primary">Continue &#10095;</button>
+        [disabled]="isNextDisabled" [ngClass]="{'btn-disabled' : isNextDisabled}" class="btn btn-primary"
+        style="user-select: none;">Continue
+        &#10095;</button>
 </div>

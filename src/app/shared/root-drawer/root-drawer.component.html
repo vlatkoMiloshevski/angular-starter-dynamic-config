@@ -5,7 +5,7 @@
     *ngFor="let drawer of drawers; trackBy: trackDrawer" [@drawerSlide] (@drawerSlide.done)="drawerSlideComplete()">
     <button *ngIf="!drawer.config.updateIsRequired"
       class="delete is-large has-background-white closeButton-{{ drawer.id }}" (click)="closeDrawer(drawer.id)"
-      data-qa-id="closeDrawerButtonX"></button>
+      data-qa-id="closeDrawerButtonX" style="user-select: none;"></button>
     <template *ngComponentOutlet="drawer.component; injector: drawer.injector"></template>
   </div>
 
@@ -16,10 +16,11 @@
       </div>
       <div class="buttons">
         <button class="( drawer-btn cancel )" data-qa-id="saveChangesPopUpDiscardButton"
-          (click)="saveDrawerChanges(false, showSaveChangesId)">
+          (click)="saveDrawerChanges(false, showSaveChangesId)" style="user-select: none;">
           Discard
         </button>
-        <button data-qa-id="saveChangesPopUpKeepButton" class="( drawer-btn )" (click)="popupVisible = false">
+        <button data-qa-id="saveChangesPopUpKeepButton" class="( drawer-btn )" (click)="popupVisible = false"
+          style="user-select: none;">
           Keep
         </button>
       </div>

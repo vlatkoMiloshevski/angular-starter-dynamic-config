@@ -6,8 +6,8 @@
     <app-dynamic-single-select [inputList]="inputList" [strategy]="strategy"
       (formValidityEvent)="formValidityEvent($event)"></app-dynamic-single-select>
   </div>
-  <br >
+  <br>
   <div style="margin-top: 10px; margin-left: 10px;">
     <button [disabled]="!isFormValid" [ngClass]="{'btn-disabled' : !isFormValid}" class="btn btn-primary"
-      (click)="onNextClick()">next</button>
+      (click)="onNextClick()" style="user-select: none;">next</button>
   </div>
