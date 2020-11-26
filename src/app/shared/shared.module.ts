@@ -16,6 +16,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { RootModalComponent } from './modal/root-modal.component';
 import { ModalService } from './modal/modal.service';
 import { RootDrawerComponent } from './root-drawer/root-drawer.component';
+import { PreviewChangeComponent } from './preview-change/preview-change.component';
 
 const dependencies = [
     NavButtonsComponent,
@@ -30,6 +31,7 @@ const dependencies = [
     SideBarComponent,
     RootModalComponent,
     RootDrawerComponent,
+    PreviewChangeComponent,
 ];
 
 @NgModule({

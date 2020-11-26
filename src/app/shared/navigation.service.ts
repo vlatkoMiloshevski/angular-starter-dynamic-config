@@ -67,6 +67,11 @@ class HomeStrategy implements NavigationStrategy {
                 loadChildren: () => import('../home/payment/payment.module').then(m => m.PaymentModule),
                 data: { name: 'Payment Page', isNavIncluded: true },
             },
+            {
+                path: 'showcase',
+                loadChildren: () => import('../showcase/showcase.module').then(m => m.ShowcaseModule),
+                data: { name: 'Showcase Page', isNavIncluded: false },
+            },
         ];
     }
 }
@@ -115,6 +120,11 @@ class MulticarStrategy implements NavigationStrategy {
                 path: 'payment',
                 loadChildren: () => import('../multicar/payment/payment.module').then(m => m.PaymentModule),
                 data: { name: 'Payment Page', isNavIncluded: true },
+            },
+            {
+                path: 'showcase',
+                loadChildren: () => import('../showcase/showcase.module').then(m => m.ShowcaseModule),
+                data: { name: 'Showcase Page', isNavIncluded: false },
             },
         ];
     }

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DetailsAboutYouComponent } from '../core/details-about-you/details-about-you.component';
+import { KeepingYouInformedComponent } from '../core/landing/keeping-you-informed/keeping-you-informed.component';
+import { WhatsCoveredComponent } from '../core/landing/whats-covered/whats-covered.component';
+import { YourClaimsComponent } from '../core/your-claims/your-claims.component';
+import { DynamicComponent } from '../dynamic-module-loader/dynamic.component';
 import { selectedItemPropertyType } from '../shared/dynamic-single-select/dynamic-single-select.component';
 import { ModalService } from '../shared/modal/modal.service';
 import { TestModalComponent } from '../shared/modal/test-modal/test-modal.component';
@@ -18,6 +23,9 @@ export class ShowcaseComponent implements OnInit {
     thirdStrategy: any;
     thirdInputList: { name: string; type: selectedItemPropertyType; }[];
     firstInputListNoAdvanced: { name: string; type: selectedItemPropertyType; }[];
+    dynamicComponentList: DynamicComponent[];
+    activeComponentIndex: number;
+    isContinueVisible: boolean;
     constructor(
         private drawerService: DrawerService,
         private modalService: ModalService,
@@ -60,6 +68,12 @@ export class ShowcaseComponent implements OnInit {
             { name: 'Garage - Work', type: selectedItemPropertyType.ADVANCED_SEARCH },
         ];
         this.tooltipText = 'From time to time esure services Limited, trading as esure like to contact you with marketing messages by email, post, phone and through digital channels. Please see our Privacy Policy for full details.';
+        this.dynamicComponentList = [
+            new DynamicComponent(YourClaimsComponent, { isShown: true }),
+            new DynamicComponent(DetailsAboutYouComponent, { isShown: false }),
+            new DynamicComponent(DetailsAboutYouComponent, { isShown: false }),
+        ];
+        this.activeComponentIndex = 0;
     }
 
     firstFormValidityEvent(data) {
@@ -85,4 +99,19 @@ export class ShowcaseComponent implements OnInit {
     openModal() {
         this.modalService.openModal(TestModalComponent, { isUpdateRequired: true });
     }
+
+    outputEvent(component) {
+        console.log(component);
+        this.dynamicComponentList[this.activeComponentIndex].data.isValid = component.form.valid;
+        if (this.dynamicComponentList[this.activeComponentIndex + 1]) {
+            this.dynamicComponentList[++this.activeComponentIndex].data.isShown = true;
+        } else {
+            this.isContinueVisible = true;
+        }
+    }
+
+    get isContinueEnabled() {
+        return this.dynamicComponentList.some(x => !x.data.isValid)
+    }
+
 }
