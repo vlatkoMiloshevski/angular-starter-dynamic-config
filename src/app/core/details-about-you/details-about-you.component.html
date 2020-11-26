@@ -1,10 +1,10 @@
 <div class="readonly" *ngIf="isEditable; else editable">
-    details-about-you
+    READONLY details-about-you
     <button class="btn btn-primary" (click)="changeClick()">Change</button>
 </div>
 <ng-template #editable>
     <div class="editable">
-        <b>edit details-about-you</b>
+        <b>EDIT details-about-you</b>
         <form [formGroup]="form">
             <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
         </form>

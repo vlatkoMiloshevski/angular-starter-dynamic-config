@@ -1,10 +1,10 @@
 <div class="readonly" *ngIf="isEditable; else editable">
-    your-claims
+    READONLY your-claims
     <button class="btn btn-primary" (click)="changeClick()">Change</button>
 </div>
 <ng-template #editable>
     <div class="editable">
-        <b>edit your-claims</b>
+        <b>EDIT your-claims</b>
     </div>
     <button *ngIf="!letsGoClicked" class="btn btn-primary" (click)="letsGo()">Let's go</button>
     <button *ngIf="letsGoClicked" class="btn btn-primary" (click)="save()">save</button>
