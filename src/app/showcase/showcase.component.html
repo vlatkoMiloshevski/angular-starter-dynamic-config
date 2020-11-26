@@ -67,7 +67,8 @@
             </app-dynamic-loader>
         </div>
     </div>
-    <button *ngIf="isContinueVisible" [disabled]="isContinueEnabled" class="btn btn-primary">Continue</button>
+    <button *ngIf="isContinueVisible" [disabled]="isContinueDisabled" class="btn btn-primary"
+        [ngClass]="{'btn-disabled' : isContinueDisabled}">Continue</button>
 
 
 </app-standard-page>

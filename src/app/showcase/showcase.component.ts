@@ -70,7 +70,7 @@ export class ShowcaseComponent implements OnInit {
         this.tooltipText = 'From time to time esure services Limited, trading as esure like to contact you with marketing messages by email, post, phone and through digital channels. Please see our Privacy Policy for full details.';
         this.dynamicComponentList = [
             new DynamicComponent(YourClaimsComponent, { isShown: true }),
-            new DynamicComponent(DetailsAboutYouComponent, { isShown: false }),
+            new DynamicComponent(YourClaimsComponent, { isShown: false }),
             new DynamicComponent(DetailsAboutYouComponent, { isShown: false }),
         ];
         this.activeComponentIndex = 0;
@@ -100,18 +100,20 @@ export class ShowcaseComponent implements OnInit {
         this.modalService.openModal(TestModalComponent, { isUpdateRequired: true });
     }
 
-    outputEvent(component) {
-        console.log(component);
-        this.dynamicComponentList[this.activeComponentIndex].data.isValid = component.form.valid;
-        if (this.dynamicComponentList[this.activeComponentIndex + 1]) {
-            this.dynamicComponentList[++this.activeComponentIndex].data.isShown = true;
-        } else {
-            this.isContinueVisible = true;
+    outputEvent(type) {
+        console.log(type.component);
+        this.dynamicComponentList[this.activeComponentIndex].data.isValid = type.component.form.valid;
+        if (type.event === 'letsgo') {
+            if (this.dynamicComponentList[this.activeComponentIndex + 1]) {
+                this.dynamicComponentList[++this.activeComponentIndex].data.isShown = true;
+            } else {
+                this.isContinueVisible = true;
+            }
         }
     }
 
-    get isContinueEnabled() {
-        return this.dynamicComponentList.some(x => !x.data.isValid)
+    get isContinueDisabled() {
+        return this.dynamicComponentList.some(x => !x.data.isValid);
     }
 
 }

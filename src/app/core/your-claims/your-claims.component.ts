@@ -26,11 +26,12 @@ export class YourClaimsComponent implements OnInit {
 
     letsGo() {
         this.isEditable = !this.isEditable;
-        this.outputEvent.emit(this);
+        this.outputEvent.emit({ component: this, event: 'letsgo' });
         this.letsGoClicked = true;
     }
 
     save() {
         this.isEditable = !this.isEditable;
+        this.outputEvent.emit({ component: this, event: 'save' });
     }
 }

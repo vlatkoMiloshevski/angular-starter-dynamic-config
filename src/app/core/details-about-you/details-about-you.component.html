@@ -5,6 +5,9 @@
 <ng-template #editable>
     <div class="editable">
         <b>edit details-about-you</b>
+        <form [formGroup]="form">
+            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+        </form>
     </div>
     <button *ngIf="!letsGoClicked" class="btn btn-primary" (click)="letsGo()">Let's go</button>
     <button *ngIf="letsGoClicked" class="btn btn-primary" (click)="save()">save</button>

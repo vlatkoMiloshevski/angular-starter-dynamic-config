@@ -7,6 +7,7 @@ import { ShowcaseRoutes } from './showcase.routes';
 import { PopoverModule } from 'ngx-smart-popover';
 import { YourClaimsComponent } from '../core/your-claims/your-claims.component';
 import { DetailsAboutYouComponent } from '../core/details-about-you/details-about-you.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,6 +23,8 @@ import { DetailsAboutYouComponent } from '../core/details-about-you/details-abou
         DynamicModule,
         SharedModule,
         PopoverModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     entryComponents: [
         ShowcaseComponent,
