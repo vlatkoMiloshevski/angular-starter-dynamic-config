@@ -3,10 +3,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
-    selector: 'app-details-about-you',
-    templateUrl: './details-about-you.component.html',
+    selector: 'app-your-convictions',
+    templateUrl: './your-convictions.component.html',
 })
-export class DetailsAboutYouComponent implements OnInit {
+export class YourConvictionsComponent implements OnInit {
     @Output() outputEvent: EventEmitter<any> = new EventEmitter();
     isEditable: boolean;
     letsGoClicked: boolean;

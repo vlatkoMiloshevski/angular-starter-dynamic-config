@@ -8,6 +8,7 @@ import { PopoverModule } from 'ngx-smart-popover';
 import { YourClaimsComponent } from '../core/your-claims/your-claims.component';
 import { DetailsAboutYouComponent } from '../core/details-about-you/details-about-you.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { YourConvictionsComponent } from '../core/your-convictions/your-convictions.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ShowcaseComponent,
         YourClaimsComponent,
         DetailsAboutYouComponent,
+        YourConvictionsComponent,
     ],
     providers: [],
     imports: [

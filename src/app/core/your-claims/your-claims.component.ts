@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -17,7 +17,9 @@ export class YourClaimsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.form = this.formBuilder.group({});
+        this.form = this.formBuilder.group({
+            acceptTerms: [false, Validators.requiredTrue]
+        });
     }
 
     changeClick() {
@@ -26,12 +28,12 @@ export class YourClaimsComponent implements OnInit {
 
     letsGo() {
         this.isEditable = !this.isEditable;
-        this.outputEvent.emit({ component: this, event: 'letsgo' });
+        this.outputEvent.emit(this);
         this.letsGoClicked = true;
     }
 
     save() {
         this.isEditable = !this.isEditable;
-        this.outputEvent.emit({ component: this, event: 'save' });
+        this.outputEvent.emit(this);
     }
 }

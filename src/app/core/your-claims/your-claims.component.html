@@ -1,10 +1,13 @@
 <div class="readonly" *ngIf="isEditable; else editable">
     READONLY your-claims
-    <button class="btn btn-primary" (click)="changeClick()">Change</button>
+    <button class="btn btn-link" (click)="changeClick()" style="float: right;">Change</button>
 </div>
 <ng-template #editable>
     <div class="editable">
         <b>EDIT your-claims</b>
+        <form [formGroup]="form">
+            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+        </form>
     </div>
     <button *ngIf="!letsGoClicked" class="btn btn-primary" (click)="letsGo()">Let's go</button>
     <button *ngIf="letsGoClicked" class="btn btn-primary" (click)="save()">save</button>

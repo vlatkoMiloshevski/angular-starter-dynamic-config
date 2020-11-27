@@ -99,6 +99,15 @@ html {
     background-color: white !important;
     border: 2px solid lightgray;
   }
+  &.btn-link {
+    border: 2px solid transparent;
+    padding: 0;
+    color: #096fae;
+    font-weight: 600;
+    &.hover {
+      text-decoration: underline;
+    }
+  }
   &::after{
     border: 2px solid lightgray;
   }

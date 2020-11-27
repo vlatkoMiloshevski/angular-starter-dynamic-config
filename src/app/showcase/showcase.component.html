@@ -66,9 +66,8 @@
     <h1 style="text-transform: uppercase; font-weight: 500;">Let's go Journey</h1>
     <br />
     <div *ngFor="let dynamicComponent of dynamicComponentList">
-        <div *ngIf="dynamicComponent.data.isShown" style="border: 1px solid #096fae;
-        padding: 10px; margin-bottom: 10px;"
-            [ngStyle]="{'border': dynamicComponent.data.isValid ? '1px solid #096fae;' : 'red'}">
+        <div *ngIf="dynamicComponent.data.isShown" style="padding: 10px; margin-bottom: 10px;"
+            [ngStyle]="{'border': dynamicComponent.data.isValid === false  ? '1px solid red' : '1px solid #096fae'}">
             <app-dynamic-loader [dynamicComponent]="dynamicComponent" (outputEvent)="outputEvent($event)">
             </app-dynamic-loader>
         </div>

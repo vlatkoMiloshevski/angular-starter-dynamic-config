@@ -3,6 +3,7 @@ import { DetailsAboutYouComponent } from '../core/details-about-you/details-abou
 import { KeepingYouInformedComponent } from '../core/landing/keeping-you-informed/keeping-you-informed.component';
 import { WhatsCoveredComponent } from '../core/landing/whats-covered/whats-covered.component';
 import { YourClaimsComponent } from '../core/your-claims/your-claims.component';
+import { YourConvictionsComponent } from '../core/your-convictions/your-convictions.component';
 import { DynamicComponent } from '../dynamic-module-loader/dynamic.component';
 import { selectedItemPropertyType } from '../shared/dynamic-single-select/dynamic-single-select.component';
 import { ModalService } from '../shared/modal/modal.service';
@@ -24,7 +25,6 @@ export class ShowcaseComponent implements OnInit {
     thirdInputList: { name: string; type: selectedItemPropertyType; }[];
     firstInputListNoAdvanced: { name: string; type: selectedItemPropertyType; }[];
     dynamicComponentList: DynamicComponent[];
-    activeComponentIndex: number;
     isContinueVisible: boolean;
     constructor(
         private drawerService: DrawerService,
@@ -69,11 +69,10 @@ export class ShowcaseComponent implements OnInit {
         ];
         this.tooltipText = 'From time to time esure services Limited, trading as esure like to contact you with marketing messages by email, post, phone and through digital channels. Please see our Privacy Policy for full details.';
         this.dynamicComponentList = [
-            new DynamicComponent(YourClaimsComponent, { isShown: true }),
+            new DynamicComponent(DetailsAboutYouComponent, { isShown: true }),
             new DynamicComponent(YourClaimsComponent, { isShown: false }),
-            new DynamicComponent(DetailsAboutYouComponent, { isShown: false }),
+            new DynamicComponent(YourConvictionsComponent, { isShown: false }),
         ];
-        this.activeComponentIndex = 0;
     }
 
     firstFormValidityEvent(data) {
@@ -100,15 +99,17 @@ export class ShowcaseComponent implements OnInit {
         this.modalService.openModal(TestModalComponent, { isUpdateRequired: true });
     }
 
-    outputEvent(type) {
-        console.log(type.component);
-        this.dynamicComponentList[this.activeComponentIndex].data.isValid = type.component.form.valid;
-        if (type.event === 'letsgo') {
-            if (this.dynamicComponentList[this.activeComponentIndex + 1]) {
-                this.dynamicComponentList[++this.activeComponentIndex].data.isShown = true;
-            } else {
-                this.isContinueVisible = true;
-            }
+    outputEvent(component) {
+        console.log(component);
+        const activeComponent = this.dynamicComponentList.find(x => x.component.name === component.constructor.name);
+        const activeComponentIndex = this.dynamicComponentList.findIndex(x => x.component.name === component.constructor.name);
+        activeComponent.data.isValid = component.form.valid;
+        const nextComponent = this.dynamicComponentList[activeComponentIndex + 1];
+        if (nextComponent && !component.letsGoClicked) {
+            nextComponent.data.isShown = true;
+        }
+        if (!nextComponent && !component.letsGoClicked) {
+            this.isContinueVisible = true;
         }
     }
 
