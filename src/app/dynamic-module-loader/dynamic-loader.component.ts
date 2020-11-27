@@ -23,14 +23,13 @@ export class DynamicLoaderComponent implements OnInit, OnDestroy {
     }
 
     loadComponent() {
-        const dynamicComponent = this.dynamicComponent;
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(dynamicComponent.component);
-
         const viewContainerRef = this.appDynamicDirective.viewContainerRef;
         viewContainerRef.clear();
 
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.dynamicComponent.component);
         this.componentRef = viewContainerRef.createComponent<DynamicComponent>(componentFactory);
-        this.componentRef.instance.data = dynamicComponent.data;
+        this.componentRef.instance.data = this.dynamicComponent.data;
+
         if (this.componentRef.instance.outputEvent) {
             this.componentRef.instance.outputEvent.subscribe(val => this.outputEvent.emit(val));
         }
