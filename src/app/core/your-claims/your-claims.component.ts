@@ -1,39 +1,22 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PreviewChangeComponent } from 'src/app/shared/preview-change/preview-change.component';
 
 
 @Component({
     selector: 'app-your-claims',
     templateUrl: './your-claims.component.html',
 })
-export class YourClaimsComponent implements OnInit {
-    @Output() outputEvent: EventEmitter<any> = new EventEmitter();
-    isEditable: boolean;
-    letsGoClicked: boolean;
-    form: any;
+export class YourClaimsComponent extends PreviewChangeComponent {
+    form: FormGroup;
 
     constructor(
         public formBuilder: FormBuilder,
-    ) { }
-
-    ngOnInit() {
+    ) {
+        super(formBuilder);
+        this.ngOnInit();
         this.form = this.formBuilder.group({
             acceptTerms: [false, Validators.requiredTrue]
         });
-    }
-
-    changeClick() {
-        this.isEditable = !this.isEditable;
-    }
-
-    letsGo() {
-        this.isEditable = !this.isEditable;
-        this.outputEvent.emit(this);
-        this.letsGoClicked = true;
-    }
-
-    save() {
-        this.isEditable = !this.isEditable;
-        this.outputEvent.emit(this);
     }
 }
