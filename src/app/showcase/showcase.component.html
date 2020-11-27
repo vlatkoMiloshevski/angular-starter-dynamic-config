@@ -4,12 +4,14 @@
     </ng-container>
 
     <div style="margin-bottom:10px">
-        <h1 style="font-size: xx-large; font-weight: 500; color: #096fae;">Technical documentation (showcase)</h1>
-        <h1 style="font-size: x-large; color: #096fae;">Common components and controls</h1>
+        <div class="h1">Technical documentation
+            (showcase)</div>
+        <div class="h2">Common components and controls</div>
     </div>
     <br />
 
-    <h1 style="text-transform: uppercase; font-weight: 500;">Single select with & without advanced list options</h1>
+    <div class="h3">* Single select with & without advanced list
+        options</div>
     <br />
     <div style="margin-bottom:10px;">
         <app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
@@ -19,51 +21,62 @@
     <br />
 
     <div style="margin-bottom:10px;">
-        <span>radio buttons</span>
+        <label class="p-large">radio buttons</label>
         <app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
             (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
     </div>
     <br />
 
     <div style="margin-bottom:10px;">
-        <span>select options</span>
+        <label class="p-large">select options</label>
         <app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
             (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
     </div>
     <br />
 
     <div style="margin-bottom:10px;">
-        <span>button fields</span>
+        <label class="p-large">button fields</label>
         <app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
             (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
     </div>
     <br />
     <br />
 
-    <h1 style="text-transform: uppercase; font-weight: 500;">Extended form elements</h1>
+    <div class="h3">* Extended form elements</div>
     <br />
-    <div class="tooltip-example" style="margin-bottom:10px; font-size: medium">
-        <p>This is a tooltip with a dummy data
+    <div class="tooltip-example" style="margin-bottom:10px;">
+        <div class="p-medium">This is a tooltip with a dummy data
             <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
-        </p>
+        </div>
     </div>
 
-    <div class="tooltip-example" style="margin-bottom:10px; font-size: large">
-        <p>This is a modal with a dummy data
+    <div class="tooltip-example" style="margin-bottom:10px;">
+        <div class="p-medium">This is a modal with a dummy data
             <u (click)="openModal()" style="cursor:pointer;">open modal</u>
-        </p>
+        </div>
     </div>
 
-    <div style="margin-bottom:10px; font-size: larger">
-        <p>This is a drawer with a dummy data
+    <div style="margin-bottom:10px;">
+        <div class="p-medium">This is a drawer with a dummy data
             <u (click)="openDrawer()" style="cursor:pointer">open drawer</u>
-        </p>
+        </div>
     </div>
 
     <br />
     <br />
+    
+    <div class="h3">* Headers and paragraphs</div>
+    <br />
+    <div class="h1">Headers and paragraphs [div.h1]</div>
+    <div class="h2">Headers and paragraphs [div.h2]</div>
+    <div class="h3">Headers and paragraphs [div.h3]</div>
+    <div class="p-large">Headers and paragraphs [div.p-large]</div>
+    <div class="p-medium">Headers and paragraphs [div.p-medium]</div>
+    <label class="h3">Headers and paragraphs [label.p-medium]</label>
+    <br />
+    <br />
 
-    <h1 style="text-transform: uppercase; font-weight: 500;">Let's go Journey</h1>
+    <div class="h3">* Let's go Journey</div>
     <br />
     <div *ngFor="let dynamicComponent of dynamicComponentList">
         <div *ngIf="dynamicComponent.data.isShown" style="padding: 10px; margin-bottom: 10px;"

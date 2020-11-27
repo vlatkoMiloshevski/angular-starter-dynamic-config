@@ -8,6 +8,11 @@ html {
   }
 }
 
+// variables
+
+$dark-font-heading-color: #4a4a4a;
+$font-heading-color: #0971b0;
+
 
 // tooltip
 
@@ -610,3 +615,80 @@ es-radio-button {
   margin-top: 10px;
   margin-bottom: 10px !important;
 }
+
+// headings & paragraphs [start]
+
+div.h1 {
+  @media screen and (max-width: 375px) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+  color: $dark-font-heading-color;
+}
+
+div.h2 {
+  @media screen and (max-width: 375px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  color: $font-heading-color;
+}
+
+div.h3 {
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: $dark-font-heading-color;
+  margin-bottom: 16px;
+}
+
+div.p-large {
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: $dark-font-heading-color;
+  margin-bottom: 16px;
+}
+
+div.p-medium {
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  color: $dark-font-heading-color;
+  margin-bottom: 16px;
+}
+
+label.h3 {
+  @media screen and (max-width: 375px) {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    font-weight: 700 !important;
+  }
+  font-size: 20px !important;
+  line-height: 24px !important;
+  font-weight: 700 !important;
+  color: $dark-font-heading-color;
+  margin-bottom: 16px !important;
+}
+// headings & paragraphs [end]

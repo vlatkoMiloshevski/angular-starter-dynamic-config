@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-preview-change',
-    templateUrl: 'preview-change.component.html',
+    template: '',
 })
 export class PreviewChangeComponent implements OnInit, OnDestroy {
     @Output() outputEvent: EventEmitter<any> = new EventEmitter();
