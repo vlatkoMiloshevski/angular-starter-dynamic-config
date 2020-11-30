@@ -1,14 +1,26 @@
-<div class="readonly" *ngIf="isEditable; else editable">
-    READONLY your-claims
-    <button class="btn btn-link" (click)="changeClick()" style="float: right;">Change</button>
-</div>
-<ng-template #editable>
+<div class="readonly">
     <div class="editable">
-        EDIT - your claims
+        Have you had any claims?
         <form [formGroup]="form">
-            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+            <span (click)="check('No')"
+                style="background-color: #e5e5e5; padding: 10px 20px; margin: 10px 10px 0px 0px; cursor: pointer; display: inline-flex;">
+                <input style="cursor: pointer; margin: 6px 10px 5px 0px;" type="radio" value="No" [checked]="isNo"
+                    formControlName="claims">
+                <label style="cursor: pointer; user-select: none;">No</label>
+            </span>
+            <span (click)="check('Yes')"
+                style="background-color: #e5e5e5; padding: 10px 20px; margin: 10px 10px 0px 0px; cursor: pointer; display: inline-flex;">
+                <input style="cursor: pointer; margin: 6px 10px 5px 0px;" type="radio" value="Yes" [checked]="isYes"
+                    formControlName="claims">
+                <label style="cursor: pointer; user-select: none;">Yes</label>
+            </span>
+
+            <div *ngIf="isYes">
+                <p>How many claims do you have?</p>
+                <span (click)="subtract()">- </span> {{noClaims}} <span (click)="add()"> +</span>
+            </div>
+
         </form>
     </div>
-    <button *ngIf="!letsGoClicked" class="btn btn-primary" (click)="letsGo()">Let's go</button>
-    <button *ngIf="letsGoClicked" class="btn btn-primary" (click)="save()">save</button>
-</ng-template>
+    <br />
+</div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PreviewChangeComponent } from 'src/app/shared/preview-change/preview-change.component';
 
 
@@ -8,7 +8,6 @@ import { PreviewChangeComponent } from 'src/app/shared/preview-change/preview-ch
     templateUrl: './your-convictions.component.html',
 })
 export class YourConvictionsComponent extends PreviewChangeComponent {
-    form: FormGroup;
 
     constructor(
         public formBuilder: FormBuilder,
@@ -16,8 +15,48 @@ export class YourConvictionsComponent extends PreviewChangeComponent {
         super(formBuilder);
         this.ngOnInit();
         this.form = this.formBuilder.group({
-            acceptTerms: [false, Validators.requiredTrue]
+            convictions: ['', Validators.required],
         });
+    }
+
+    get isNo() {
+        return this.form.get('convictions').value === 'No';
+    }
+
+    get isYes() {
+        return this.form.get('convictions').value === 'Yes';
+    }
+
+    get noConvictions() {
+        return this.form.get('noConvictions').value;
+    }
+
+    get isFormValid() {
+        return this.form.valid;
+    }
+
+    check(value) {
+        this.form.get('convictions').setValue(value);
+        if (value === 'No') {
+            this.form.removeControl('noConvictions');
+            this.letsGo();
+        } else {
+            this.form.addControl('noConvictions', new FormControl(0, Validators.min(1)));
+            this.outputEvent.emit(this);
+        }
+    }
+
+    subtract() {
+        if (this.form.get('noConvictions').value === 0) {
+            return;
+        }
+        this.form.get('noConvictions').setValue(this.form.get('noConvictions').value - 1);
+        this.letsGo();
+    }
+
+    add() {
+        this.form.get('noConvictions').setValue(this.form.get('noConvictions').value + 1);
+        this.letsGo();
     }
 
 }

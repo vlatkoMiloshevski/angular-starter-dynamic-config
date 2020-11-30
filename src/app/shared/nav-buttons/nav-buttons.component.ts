@@ -7,7 +7,7 @@ import { appRoutes } from 'src/app/app-routing.module';
     templateUrl: './nav-buttons.component.html',
 })
 export class NavButtonsComponent implements OnInit {
-    @Input() isNextDisabled;
+    @Input() isContinueDisabled;
     @Input() isPrevHidden: boolean;
     @Input() isNextHidden: boolean;
     nextState: Route;
@@ -30,6 +30,9 @@ export class NavButtonsComponent implements OnInit {
     }
 
     goNext() {
+        if (this.isContinueDisabled) {
+            return;
+        }
         return this.router.navigateByUrl(this.nextState.path);
     }
 }

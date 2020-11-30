@@ -8,7 +8,7 @@ import { ReviewService } from './review.service';
 export class ReviewComponent implements OnInit {
   @Input() data: any;
   dynamicComponentList: DynamicComponent[];
-  isNextDisabled: any = false;
+  isContinueDisabled: any = false;
 
   constructor(
     private reviewService: ReviewService,

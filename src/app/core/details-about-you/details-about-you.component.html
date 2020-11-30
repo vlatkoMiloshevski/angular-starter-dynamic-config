@@ -1,14 +1,29 @@
 <div class="readonly" *ngIf="isEditable; else editable">
-    READONLY details-about-you
+
     <button class="btn btn-link" (click)="changeClick()" style="float: right;">Change</button>
+
+    <div>You are</div>
+    <div class="p-large">{{username}}</div>
+    <div>Date of bith</div>
+    <div class="p-large">{{dateOfBirth}}</div>
+    <div>Email</div>
+    <div class="p-large">{{email}}</div>
+    <div>Telephone</div>
+    <div class="p-large">{{telephone}}</div>
+
 </div>
 <ng-template #editable>
     <div class="editable">
-        EDIT - details about you
+
         <form [formGroup]="form">
-            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+            <div class="p-medium"><input type="text" formControlName="username" placeholder="You are" /></div>
+            <div class="p-medium"><input type="text" formControlName="dateOfBirth" placeholder="Date of bith" /></div>
+            <div class="p-medium"><input type="text" formControlName="email" placeholder="Email" /></div>
+            <div class="p-medium"><input type="text" formControlName="telephone" placeholder="Telephone" /></div>
         </form>
     </div>
-    <button *ngIf="!letsGoClicked" class="btn btn-primary" (click)="letsGo()">Let's go</button>
-    <button *ngIf="letsGoClicked" class="btn btn-primary" (click)="save()">save</button>
+    <button *ngIf="!letsGoClicked" [disabled]="isFormInvalid" [ngClass]="{'btn-disabled' : isFormInvalid}"
+        class="btn btn-primary" (click)="letsGo()">Let's go</button>
+    <button *ngIf="letsGoClicked" [disabled]="isFormInvalid" [ngClass]="{'btn-disabled' : isFormInvalid}"
+        class="btn btn-primary" (click)="save()">save</button>
 </ng-template>

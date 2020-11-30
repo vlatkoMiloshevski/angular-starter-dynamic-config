@@ -108,9 +108,6 @@ export class ShowcaseComponent implements OnInit {
         if (nextComponent && !component.letsGoClicked) {
             nextComponent.data.isShown = true;
         }
-        if (!nextComponent && !component.letsGoClicked) {
-            this.isContinueVisible = true;
-        }
     }
 
     get isContinueDisabled() {

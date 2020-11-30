@@ -64,7 +64,7 @@
 
     <br />
     <br />
-    
+
     <div class="h3">* Headers and paragraphs</div>
     <br />
     <div class="h1">Headers and paragraphs [div.h1]</div>
@@ -85,8 +85,9 @@
             </app-dynamic-loader>
         </div>
     </div>
-    <button *ngIf="isContinueVisible" [disabled]="isContinueDisabled" class="btn btn-primary"
-        [ngClass]="{'btn-disabled' : isContinueDisabled}">Continue</button>
+    <app-nav-buttons [isContinueDisabled]="isContinueDisabled"></app-nav-buttons>
 
-
+    <ng-container class="sidebar">
+        <app-side-bar></app-side-bar>
+    </ng-container>
 </app-standard-page>

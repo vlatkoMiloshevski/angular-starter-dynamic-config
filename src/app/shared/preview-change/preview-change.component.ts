@@ -9,6 +9,7 @@ export class PreviewChangeComponent implements OnInit, OnDestroy {
     @Output() outputEvent: EventEmitter<any> = new EventEmitter();
     isEditable: boolean;
     letsGoClicked: boolean;
+    form: FormGroup;
 
     constructor(
         public formBuilder: FormBuilder,

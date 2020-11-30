@@ -2,7 +2,7 @@
     <button [style.display]="prevState ? 'inline-block' : 'none'" (click)="goBack()" *ngIf="!isPrevHidden" class="btn"
         style="margin-right:10px; user-select: none;">&#10094; Back</button>
     <button [style.display]="nextState ? 'inline-block' : 'none'" (click)="goNext()" *ngIf="!isNextHidden"
-        [disabled]="isNextDisabled" [ngClass]="{'btn-disabled' : isNextDisabled}" class="btn btn-primary"
+        [disabled]="isContinueDisabled" [ngClass]="{'btn-disabled' : isContinueDisabled}" class="btn btn-primary"
         style="user-select: none;">Continue
         &#10095;</button>
 </div>

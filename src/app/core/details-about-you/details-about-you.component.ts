@@ -8,7 +8,6 @@ import { PreviewChangeComponent } from '../../shared/preview-change/preview-chan
     templateUrl: './details-about-you.component.html',
 })
 export class DetailsAboutYouComponent extends PreviewChangeComponent {
-    form: FormGroup;
 
     constructor(
         public formBuilder: FormBuilder,
@@ -16,8 +15,31 @@ export class DetailsAboutYouComponent extends PreviewChangeComponent {
         super(formBuilder);
         this.ngOnInit();
         this.form = this.formBuilder.group({
-            acceptTerms: [false, Validators.requiredTrue],
+            username: ['', Validators.required],
+            dateOfBirth: ['', Validators.required],
+            email: ['', Validators.required],
+            telephone: ['', Validators.required],
         });
+    }
+
+    get username() {
+        return this.form.get('username').value;
+    }
+
+    get dateOfBirth() {
+        return this.form.get('dateOfBirth').value;
+    }
+
+    get email() {
+        return this.form.get('email').value;
+    }
+
+    get telephone() {
+        return this.form.get('telephone').value;
+    }
+
+    get isFormInvalid() {
+        return this.form.invalid;
     }
 
 }

@@ -8,7 +8,7 @@ import { ReviewService } from './review.service';
 export class ReviewComponent implements OnInit {
   @Input() data: any;
   dynamicComponentList: DynamicComponent[];
-  isNextDisabled: any = true;
+  isContinueDisabled: any = true;
 
   constructor(
     private reviewService: ReviewService,
@@ -19,7 +19,7 @@ export class ReviewComponent implements OnInit {
   }
 
   outputEvent(event) {
-    this.isNextDisabled = event;
+    this.isContinueDisabled = event;
   }
 
 }
