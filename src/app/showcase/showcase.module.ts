@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PopoverModule } from 'ngx-smart-popover';
 import { DynamicModule } from '../dynamic-module-loader/dynamic.module';
 import { SharedModule } from '../shared/shared.module';
+import { ShowcaseDetailsAboutYouComponent } from './showcase-details-about-you/showcase-details-about-you.component';
+import { ShowcaseYourClaimsComponent } from './showcase-your-claims/showcase-your-claims.component';
+import { ShowcaseYourConvictionsComponent } from './showcase-your-convictions/showcase-your-convictions.component';
 import { ShowcaseComponent } from './showcase.component';
 import { ShowcaseRoutes } from './showcase.routes';
-import { PopoverModule } from 'ngx-smart-popover';
-import { YourClaimsComponent } from '../core/your-claims/your-claims.component';
-import { DetailsAboutYouComponent } from '../core/details-about-you/details-about-you.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { YourConvictionsComponent } from '../core/your-convictions/your-convictions.component';
 
 
 @NgModule({
     declarations: [
         ShowcaseComponent,
-        YourClaimsComponent,
-        DetailsAboutYouComponent,
-        YourConvictionsComponent,
+        ShowcaseYourClaimsComponent,
+        ShowcaseDetailsAboutYouComponent,
+        ShowcaseYourConvictionsComponent,
     ],
     providers: [],
     imports: [

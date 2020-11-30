@@ -1,24 +1,25 @@
 <div class="readonly">
     <div class="editable">
-        Have you had any convictions?
+        Have you had any claims?
         <form [formGroup]="form">
             <span (click)="check('No')"
                 style="background-color: #e5e5e5; padding: 10px 20px; margin: 10px 10px 0px 0px; cursor: pointer; display: inline-flex;">
                 <input style="cursor: pointer; margin: 6px 10px 5px 0px;" type="radio" value="No" [checked]="isNo"
-                    formControlName="convictions">
+                    formControlName="claims">
                 <label style="cursor: pointer; user-select: none;">No</label>
             </span>
             <span (click)="check('Yes')"
                 style="background-color: #e5e5e5; padding: 10px 20px; margin: 10px 10px 0px 0px; cursor: pointer; display: inline-flex;">
                 <input style="cursor: pointer; margin: 6px 10px 5px 0px;" type="radio" value="Yes" [checked]="isYes"
-                    formControlName="convictions">
+                    formControlName="claims">
                 <label style="cursor: pointer; user-select: none;">Yes</label>
             </span>
 
             <div *ngIf="isYes">
-                <p>How many convictions do you have?</p>
-                <span (click)="subtract()">- </span> {{noConvictions}} <span (click)="add()"> +</span>
+                <p>How many claims do you have?</p>
+                <span (click)="subtract()" style="cursor: pointer">- </span> {{noClaims}} <span (click)="add()" style="cursor: pointer"> +</span>
             </div>
+
         </form>
     </div>
     <br />

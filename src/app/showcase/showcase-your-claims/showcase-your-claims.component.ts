@@ -4,10 +4,10 @@ import { PreviewChangeComponent } from 'src/app/shared/preview-change/preview-ch
 
 
 @Component({
-    selector: 'app-your-claims',
-    templateUrl: './your-claims.component.html',
+    selector: 'app-showcase-your-claims',
+    templateUrl: './showcase-your-claims.component.html',
 })
-export class YourClaimsComponent extends PreviewChangeComponent {
+export class ShowcaseYourClaimsComponent extends PreviewChangeComponent {
 
     constructor(
         public formBuilder: FormBuilder,
@@ -39,9 +39,11 @@ export class YourClaimsComponent extends PreviewChangeComponent {
         this.form.get('claims').setValue(value);
         if (value === 'No') {
             this.form.removeControl('noClaims');
+            this.letsGoClicked = false;
             this.letsGo();
         } else {
             this.form.addControl('noClaims', new FormControl(0, Validators.min(1)));
+            this.letsGoClicked = true;
             this.outputEvent.emit(this);
         }
     }
@@ -51,11 +53,13 @@ export class YourClaimsComponent extends PreviewChangeComponent {
             return;
         }
         this.form.get('noClaims').setValue(this.form.get('noClaims').value - 1);
+        this.letsGoClicked = false;
         this.letsGo();
     }
 
     add() {
         this.form.get('noClaims').setValue(this.form.get('noClaims').value + 1);
+        this.letsGoClicked = false;
         this.letsGo();
     }
 

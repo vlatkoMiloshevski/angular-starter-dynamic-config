@@ -4,10 +4,10 @@ import { PreviewChangeComponent } from '../../shared/preview-change/preview-chan
 
 
 @Component({
-    selector: 'app-details-about-you',
-    templateUrl: './details-about-you.component.html',
+    selector: 'app-showcase-details-about-you',
+    templateUrl: './showcase-details-about-you.component.html',
 })
-export class DetailsAboutYouComponent extends PreviewChangeComponent {
+export class ShowcaseDetailsAboutYouComponent extends PreviewChangeComponent {
 
     constructor(
         public formBuilder: FormBuilder,

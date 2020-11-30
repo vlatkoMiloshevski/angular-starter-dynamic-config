@@ -10,6 +10,28 @@
     </div>
     <br />
 
+    <div class="h3">* Layout and nested contents</div>
+    <br />
+
+    <div style="border: 1px dashed blue; padding: 10px;">
+        <div style="margin-bottom: 10px;">
+            Layout Width:&nbsp;<b>{{getPropValue('width', 'div.layout-container')}}</b>
+        </div>
+        <div style="border: 1px dashed blue; padding: 10px;">
+            <div style="margin-bottom: 10px;">
+                Content Width:&nbsp;<b>{{getPropValue('width', 'div.main-content')}}</b>
+            </div>
+            <div style="border: 1px dashed blue; padding: 10px; display: inline-flex;">
+                Main Width:&nbsp;<b>{{getPropValue('width', 'div.main-column')}}</b>
+            </div>
+            <div *ngIf="getPropValue('display', 'div.side-column') !== 'none'" style="border: 1px dashed blue; padding: 10px; display: inline-flex; float: right;">
+                Side Width:&nbsp;<b>{{getPropValue('width', 'div.side-column')}}</b>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
     <div class="h3">* Single select with & without advanced list
         options</div>
     <br />
@@ -67,12 +89,42 @@
 
     <div class="h3">* Headers and paragraphs</div>
     <br />
-    <div class="h1">Headers and paragraphs [div.h1]</div>
-    <div class="h2">Headers and paragraphs [div.h2]</div>
-    <div class="h3">Headers and paragraphs [div.h3]</div>
-    <div class="p-large">Headers and paragraphs [div.p-large]</div>
-    <div class="p-medium">Headers and paragraphs [div.p-medium]</div>
-    <label class="h3">Headers and paragraphs [label.p-medium]</label>
+    <div class="h1">Header [div.h1]</div>
+    <pre>
+        fontSize: {{getPropValue('font-size', 'div.h1')}}
+        lineHeight: {{getPropValue('line-height', 'div.h1')}}
+        font-weight: {{getPropValue('font-weight', 'div.h1')}}
+    </pre>
+    <div class="h2">Header [div.h2] - fontSize: {{getPropValue('font-size', 'div.h2')}}</div>
+    <pre>
+        fontSize: {{getPropValue('font-size', 'div.h2')}}
+        lineHeight: {{getPropValue('line-height', 'div.h2')}}
+        font-weight: {{getPropValue('font-weight', 'div.h2')}}
+    </pre>
+    <div class="h3">Header [div.h3] - fontSize: {{getPropValue('font-size', 'div.h3')}}</div>
+    <pre>
+        fontSize: {{getPropValue('font-size', 'div.h3')}}
+        lineHeight: {{getPropValue('line-height', 'div.h3')}}
+        font-weight: {{getPropValue('font-weight', 'div.h3')}}
+    </pre>
+    <div class="p-large">Paragraphs [div.p-large] - fontSize: {{getPropValue('font-size', 'div.p-large')}}</div>
+    <pre>
+        fontSize: {{getPropValue('font-size', 'div.p-large')}}
+        lineHeight: {{getPropValue('line-height', 'div.p-large')}}
+        font-weight: {{getPropValue('font-weight', 'div.p-large')}}
+    </pre>
+    <div class="p-medium">Paragraphs [div.p-medium] - fontSize: {{getPropValue('font-size', 'div.p-medium')}}</div>
+    <pre>
+        fontSize: {{getPropValue('font-size', 'div.p-medium')}}
+        lineHeight: {{getPropValue('line-height', 'div.p-medium')}}
+        font-weight: {{getPropValue('font-weight', 'div.p-medium')}}
+    </pre>
+    <label class="h3">Paragraphs [label.h3] - fontSize: {{getPropValue('font-size', 'label.h3')}}</label>
+    <pre>
+        fontSize: {{getPropValue('font-size', 'label.h3')}}
+        lineHeight: {{getPropValue('line-height', 'label.h3')}}
+        font-weight: {{getPropValue('font-weight', 'label.h3')}}
+    </pre>
     <br />
     <br />
 

@@ -4,10 +4,10 @@ import { PreviewChangeComponent } from 'src/app/shared/preview-change/preview-ch
 
 
 @Component({
-    selector: 'app-your-convictions',
-    templateUrl: './your-convictions.component.html',
+    selector: 'app-showcase-your-convictions',
+    templateUrl: './showcase-your-convictions.component.html',
 })
-export class YourConvictionsComponent extends PreviewChangeComponent {
+export class ShowcaseYourConvictionsComponent extends PreviewChangeComponent {
 
     constructor(
         public formBuilder: FormBuilder,
@@ -39,6 +39,7 @@ export class YourConvictionsComponent extends PreviewChangeComponent {
         this.form.get('convictions').setValue(value);
         if (value === 'No') {
             this.form.removeControl('noConvictions');
+            this.letsGoClicked = false;
             this.letsGo();
         } else {
             this.form.addControl('noConvictions', new FormControl(0, Validators.min(1)));
@@ -51,11 +52,13 @@ export class YourConvictionsComponent extends PreviewChangeComponent {
             return;
         }
         this.form.get('noConvictions').setValue(this.form.get('noConvictions').value - 1);
+        this.letsGoClicked = false;
         this.letsGo();
     }
 
     add() {
         this.form.get('noConvictions').setValue(this.form.get('noConvictions').value + 1);
+        this.letsGoClicked = false;
         this.letsGo();
     }
 

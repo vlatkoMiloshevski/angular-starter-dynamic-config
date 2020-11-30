@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailsAboutYouComponent } from '../core/details-about-you/details-about-you.component';
-import { KeepingYouInformedComponent } from '../core/landing/keeping-you-informed/keeping-you-informed.component';
-import { WhatsCoveredComponent } from '../core/landing/whats-covered/whats-covered.component';
-import { YourClaimsComponent } from '../core/your-claims/your-claims.component';
-import { YourConvictionsComponent } from '../core/your-convictions/your-convictions.component';
 import { DynamicComponent } from '../dynamic-module-loader/dynamic.component';
 import { selectedItemPropertyType } from '../shared/dynamic-single-select/dynamic-single-select.component';
 import { ModalService } from '../shared/modal/modal.service';
 import { TestModalComponent } from '../shared/modal/test-modal/test-modal.component';
 import { DrawerService } from '../shared/root-drawer/drawer.service';
 import { TestDrawerComponent } from '../shared/root-drawer/test-drawer/test-drawer.component';
+import { ShowcaseDetailsAboutYouComponent } from './showcase-details-about-you/showcase-details-about-you.component';
+import { ShowcaseYourClaimsComponent } from './showcase-your-claims/showcase-your-claims.component';
+import { ShowcaseYourConvictionsComponent } from './showcase-your-convictions/showcase-your-convictions.component';
 
 @Component({
     templateUrl: 'showcase.component.html',
@@ -69,9 +67,9 @@ export class ShowcaseComponent implements OnInit {
         ];
         this.tooltipText = 'From time to time esure services Limited, trading as esure like to contact you with marketing messages by email, post, phone and through digital channels. Please see our Privacy Policy for full details.';
         this.dynamicComponentList = [
-            new DynamicComponent(DetailsAboutYouComponent, { isShown: true }),
-            new DynamicComponent(YourClaimsComponent, { isShown: false }),
-            new DynamicComponent(YourConvictionsComponent, { isShown: false }),
+            new DynamicComponent(ShowcaseDetailsAboutYouComponent, { isShown: true }),
+            new DynamicComponent(ShowcaseYourClaimsComponent, { isShown: false }),
+            new DynamicComponent(ShowcaseYourConvictionsComponent, { isShown: false }),
         ];
     }
 
@@ -97,6 +95,12 @@ export class ShowcaseComponent implements OnInit {
 
     openModal() {
         this.modalService.openModal(TestModalComponent, { isUpdateRequired: true });
+    }
+
+    getPropValue(propName, className) {
+        if (window && window.hasOwnProperty('getComputedStyle')) {
+            return window.getComputedStyle(document.querySelector(className), null).getPropertyValue(propName);
+        }
     }
 
     outputEvent(component) {
