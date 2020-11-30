@@ -3,17 +3,14 @@
         <div style="margin-top:50px;"></div>
     </ng-container>
 
-    <div style="margin-bottom:10px">
+    <div style="margin-bottom:50px">
         <div class="h1">Technical documentation
             (showcase)</div>
         <div class="h2">Common components and controls</div>
     </div>
-    <br />
 
     <div class="h3">* Layout and nested content</div>
-    <br />
-
-    <div style="border: 1px dashed blue; padding: 10px;">
+    <div style="border: 1px dashed blue; padding: 10px; margin-bottom:50px">
         <div style="margin-bottom: 10px;">
             Layout Width:&nbsp;<b>{{getPropValue('width', 'div.layout-container')}}</b>
         </div>
@@ -24,119 +21,114 @@
             <div style="border: 1px dashed blue; padding: 10px; display: inline-flex;">
                 Main Width:&nbsp;<b>{{getPropValue('width', 'div.main-column')}}</b>
             </div>
-            <div *ngIf="getPropValue('display', 'div.side-column') !== 'none'" style="border: 1px dashed blue; padding: 10px; display: inline-flex; float: right;">
+            <div *ngIf="getPropValue('display', 'div.side-column') !== 'none'"
+                style="border: 1px dashed blue; padding: 10px; display: inline-flex; float: right;">
                 Side Width:&nbsp;<b>{{getPropValue('width', 'div.side-column')}}</b>
             </div>
         </div>
     </div>
-    <br />
-    <br />
 
     <div class="h3">* Single select with & without advanced list
         options</div>
-    <br />
-    <div style="margin-bottom:10px;">
-        <app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
-            (formValidityEvent)="firstFormValidityEventNoAdvanced($event)">
-        </app-dynamic-single-select>
-    </div>
-    <br />
+    <div style="margin-bottom:50px;">
+        <div style="margin-bottom:10px;">
+            <app-dynamic-single-select [inputList]="firstInputListNoAdvanced" [strategy]="firstStrategy"
+                (formValidityEvent)="firstFormValidityEventNoAdvanced($event)">
+            </app-dynamic-single-select>
+        </div>
 
-    <div style="margin-bottom:10px;">
-        <label class="p-large">radio buttons</label>
-        <app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
-            (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
-    </div>
-    <br />
+        <div style="margin-bottom:10px;">
+            <label class="p-large">radio buttons</label>
+            <app-dynamic-single-select [inputList]="secondInputList" [strategy]="secondStrategy"
+                (formValidityEvent)="secondFormValidityEvent($event)"></app-dynamic-single-select>
+        </div>
 
-    <div style="margin-bottom:10px;">
-        <label class="p-large">select options</label>
-        <app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
-            (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
-    </div>
-    <br />
+        <div style="margin-bottom:10px;">
+            <label class="p-large">select options</label>
+            <app-dynamic-single-select [inputList]="firstInputList" [strategy]="firstStrategy"
+                (formValidityEvent)="firstFormValidityEvent($event)"></app-dynamic-single-select>
+        </div>
 
-    <div style="margin-bottom:10px;">
-        <label class="p-large">button fields</label>
-        <app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
-            (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
+        <div>
+            <label class="p-large">button fields</label>
+            <app-dynamic-single-select [inputList]="thirdInputList" [strategy]="thirdStrategy"
+                (formValidityEvent)="thirdFormValidityEvent($event)"></app-dynamic-single-select>
+        </div>
     </div>
-    <br />
-    <br />
 
     <div class="h3">* Extended form elements</div>
-    <br />
-    <div class="tooltip-example" style="margin-bottom:10px;">
-        <div class="p-medium">This is a tooltip with a dummy data
-            <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
+    <div style="margin-bottom:50px;">
+        <div class="tooltip-example" style="margin-bottom:10px;">
+            <div class="p-medium">This is a tooltip with a dummy data
+                <app-info-button-component [tooltipText]="tooltipText"></app-info-button-component>
+            </div>
+        </div>
+
+        <div class="tooltip-example" style="margin-bottom:10px;">
+            <div class="p-medium">This is a modal with a dummy data
+                <u (click)="openModal()" style="cursor:pointer;">open modal</u>
+            </div>
+        </div>
+
+        <div style="margin-bottom:30px;">
+            <div class="p-medium">This is a drawer with a dummy data
+                <u (click)="openDrawer()" style="cursor:pointer">open drawer</u>
+            </div>
         </div>
     </div>
-
-    <div class="tooltip-example" style="margin-bottom:10px;">
-        <div class="p-medium">This is a modal with a dummy data
-            <u (click)="openModal()" style="cursor:pointer;">open modal</u>
-        </div>
-    </div>
-
-    <div style="margin-bottom:10px;">
-        <div class="p-medium">This is a drawer with a dummy data
-            <u (click)="openDrawer()" style="cursor:pointer">open drawer</u>
-        </div>
-    </div>
-
-    <br />
-    <br />
 
     <div class="h3">* Headers and paragraphs</div>
-    <br />
-    <div class="h1">Header [div.h1]</div>
-    <pre>
-        fontSize: {{getPropValue('font-size', 'div.h1')}}
-        lineHeight: {{getPropValue('line-height', 'div.h1')}}
-        font-weight: {{getPropValue('font-weight', 'div.h1')}}
-    </pre>
-    <div class="h2">Header [div.h2]</div>
-    <pre>
-        fontSize: {{getPropValue('font-size', 'div.h2')}}
-        lineHeight: {{getPropValue('line-height', 'div.h2')}}
-        font-weight: {{getPropValue('font-weight', 'div.h2')}}
-    </pre>
-    <div class="h3">Header [div.h3]</div>
-    <pre>
-        fontSize: {{getPropValue('font-size', 'div.h3')}}
-        lineHeight: {{getPropValue('line-height', 'div.h3')}}
-        font-weight: {{getPropValue('font-weight', 'div.h3')}}
-    </pre>
-    <div class="p-large">Paragraphs [div.p-large]</div>
-    <pre>
-        fontSize: {{getPropValue('font-size', 'div.p-large')}}
-        lineHeight: {{getPropValue('line-height', 'div.p-large')}}
-        font-weight: {{getPropValue('font-weight', 'div.p-large')}}
-    </pre>
-    <div class="p-medium">Paragraphs [div.p-medium]</div>
-    <pre>
-        fontSize: {{getPropValue('font-size', 'div.p-medium')}}
-        lineHeight: {{getPropValue('line-height', 'div.p-medium')}}
-        font-weight: {{getPropValue('font-weight', 'div.p-medium')}}
-    </pre>
-    <label class="h3">Paragraphs [label.h3]</label>
-    <pre>
-        fontSize: {{getPropValue('font-size', 'label.h3')}}
-        lineHeight: {{getPropValue('line-height', 'label.h3')}}
-        font-weight: {{getPropValue('font-weight', 'label.h3')}}
-    </pre>
-    <br />
-    <br />
+    <div style="margin-bottom:50px;">
+        <div class="h1">Header [div.h1]</div>
+        <pre>
+            fontSize: {{getPropValue('font-size', 'div.h1')}}
+            lineHeight: {{getPropValue('line-height', 'div.h1')}}
+            font-weight: {{getPropValue('font-weight', 'div.h1')}}
+        </pre>
+        <div class="h2">Header [div.h2]</div>
+        <pre>
+            fontSize: {{getPropValue('font-size', 'div.h2')}}
+            lineHeight: {{getPropValue('line-height', 'div.h2')}}
+            font-weight: {{getPropValue('font-weight', 'div.h2')}}
+        </pre>
+        <div class="h3">Header [div.h3]</div>
+        <pre>
+            fontSize: {{getPropValue('font-size', 'div.h3')}}
+            lineHeight: {{getPropValue('line-height', 'div.h3')}}
+            font-weight: {{getPropValue('font-weight', 'div.h3')}}
+        </pre>
+        <div class="p-large">Paragraphs [div.p-large]</div>
+        <pre>
+            fontSize: {{getPropValue('font-size', 'div.p-large')}}
+            lineHeight: {{getPropValue('line-height', 'div.p-large')}}
+            font-weight: {{getPropValue('font-weight', 'div.p-large')}}
+        </pre>
+        <div class="p-medium">Paragraphs [div.p-medium]</div>
+        <pre>
+            fontSize: {{getPropValue('font-size', 'div.p-medium')}}
+            lineHeight: {{getPropValue('line-height', 'div.p-medium')}}
+            font-weight: {{getPropValue('font-weight', 'div.p-medium')}}
+        </pre>
+        <label class="h3">Paragraphs [label.h3]</label>
+        <pre>
+            fontSize: {{getPropValue('font-size', 'label.h3')}}
+            lineHeight: {{getPropValue('line-height', 'label.h3')}}
+            font-weight: {{getPropValue('font-weight', 'label.h3')}}
+        </pre>
+    </div>
 
     <div class="h3">* Let's go Journey</div>
-    <br />
-    <div *ngFor="let dynamicComponent of dynamicComponentList">
-        <div *ngIf="dynamicComponent.data.isShown" style="padding: 10px; margin-bottom: 10px;"
-            [ngStyle]="{'border': dynamicComponent.data.isValid === false  ? '1px solid red' : '1px solid #096fae'}">
-            <app-dynamic-loader [dynamicComponent]="dynamicComponent" (outputEvent)="outputEvent($event)">
-            </app-dynamic-loader>
+    <div style="margin-bottom:50px;">
+        <div *ngFor="let dynamicComponent of dynamicComponentList">
+            <div *ngIf="dynamicComponent.data.isShown" style="padding: 10px; margin-bottom: 10px;"
+                [ngStyle]="{'border': dynamicComponent.data.isValid === false  ? '1px solid red' : '1px solid #096fae'}">
+                <app-dynamic-loader [dynamicComponent]="dynamicComponent" (outputEvent)="outputEvent($event)">
+                </app-dynamic-loader>
+            </div>
         </div>
     </div>
+
+    <div class="h3">* Navigation buttons</div>
     <app-nav-buttons [isContinueDisabled]="isContinueDisabled"></app-nav-buttons>
 
     <ng-container class="sidebar">
