@@ -12,7 +12,17 @@ html {
 
 $dark-font-heading-color: #4a4a4a;
 $font-heading-color: #0971b0;
-
+$drawer-z-index: 1000;
+$drawer-width: 500px;
+$drawer-touch-width: 90%;
+$background-darker: #eaeaea;
+$background-lighter: #f7f7f7;
+$success-border-color: hsl(128, 52%, 47%);
+$payment-page-title-color: #4a4a4a;
+$drawer-left-right-padding: 1.5 * $column-gap;
+$drawer-main-verticle-padding: 1rem;
+$drawer-header-footer-verticle-padding: 1.5rem;
+$dropshadow-color: rgba(50, 54, 58, 0.15);
 
 // tooltip
 
@@ -29,7 +39,7 @@ $font-heading-color: #0971b0;
     padding: 3px 8px;
     background: #ededed;
     border-radius: 10px;
-    z-index: 1000;
+    z-index: 10;
     opacity: 0;
     box-shadow: 0px 8px 18px 2px black;
     border: 2px solid black;
@@ -242,17 +252,7 @@ label {
   
   // drawers
 
-  $drawer-z-index: 31;
-$drawer-width: 500px;
-$drawer-touch-width: 90%;
-$background-darker: #eaeaea;
-$background-lighter: #f7f7f7;
-$success-border-color: hsl(128, 52%, 47%);
-$payment-page-title-color: #4a4a4a;
-$drawer-left-right-padding: 1.5 * $column-gap;
-$drawer-main-verticle-padding: 1rem;
-$drawer-header-footer-verticle-padding: 1.5rem;
-$dropshadow-color: rgba(50, 54, 58, 0.15);
+
 
 @mixin drawer-dropshadow($top) {
   $direction: 1;
