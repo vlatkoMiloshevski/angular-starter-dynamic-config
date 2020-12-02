@@ -25,6 +25,10 @@ export class TestModalComponent extends ModalComponent implements OnDestroy {
         this.modalService.dismissModal();
     }
 
+    updateModal() {
+        this.modalService.dismissModal();
+    }
+
     ngOnDestroy() {
         this.unsubscribe.next();
         this.unsubscribe.complete();
