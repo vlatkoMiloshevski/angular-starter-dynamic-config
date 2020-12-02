@@ -2,9 +2,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectedItemModel } from '../dynamic-single-select.component';
 
 @Component({
-    templateUrl: './strategy1.component.html',
+    templateUrl: './select-option-stategy.component.html',
 })
-export class Strategy1Component implements OnInit {
+export class SelectOptionStrategyComponent implements OnInit {
     @Input() data: SelectedItemModel[];
     @Output() outputEvent: EventEmitter<SelectedItemModel> = new EventEmitter();
 

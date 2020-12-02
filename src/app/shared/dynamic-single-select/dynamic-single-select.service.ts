@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { DynamicComponent } from 'src/app/shared/dynamic-module-loader/dynamic.component';
 import { SelectedItemModel } from './dynamic-single-select.component';
-import { Strategy1Component } from './strategy/strategy1.component';
-import { Strategy2Component } from './strategy/strategy2.component';
-import { Strategy3Component } from './strategy/strategy3.component';
+import { SelectOptionStrategyComponent } from './strategy/select-option-stategy.component';
+import { RadioButtonStrategyComponent } from './strategy/radio-button-strategy.component';
+import { ButtonFieldStrategyComponent } from './strategy/button-field-strategy.component';
 
 
 @Injectable()
@@ -49,19 +49,19 @@ interface DynamicSingleSelectStrategy {
 
 class Strategy1 implements DynamicSingleSelectStrategy {
     getComponents(advancedList: SelectedItemModel[]) {
-        return new DynamicComponent(Strategy1Component, advancedList);
+        return new DynamicComponent(SelectOptionStrategyComponent, advancedList);
     }
 }
 
 class Strategy2 implements DynamicSingleSelectStrategy {
     getComponents(advancedList: SelectedItemModel[]) {
-        return new DynamicComponent(Strategy2Component, advancedList);
+        return new DynamicComponent(RadioButtonStrategyComponent, advancedList);
     }
 }
 
 class Strategy3 implements DynamicSingleSelectStrategy {
     getComponents(advancedList: SelectedItemModel[]) {
-        return new DynamicComponent(Strategy3Component, advancedList);
+        return new DynamicComponent(ButtonFieldStrategyComponent, advancedList);
     }
 }
 

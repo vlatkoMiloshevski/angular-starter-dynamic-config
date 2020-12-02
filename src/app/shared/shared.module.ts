@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicSingleSelectComponent } from './dynamic-single-select/dynamic-single-select.component';
 import { DynamicSingleSelectService } from './dynamic-single-select/dynamic-single-select.service';
-import { Strategy1Component } from './dynamic-single-select/strategy/strategy1.component';
-import { Strategy2Component } from './dynamic-single-select/strategy/strategy2.component';
-import { Strategy3Component } from './dynamic-single-select/strategy/strategy3.component';
+import { SelectOptionStrategyComponent } from './dynamic-single-select/strategy/select-option-stategy.component';
+import { RadioButtonStrategyComponent } from './dynamic-single-select/strategy/radio-button-strategy.component';
+import { ButtonFieldStrategyComponent } from './dynamic-single-select/strategy/button-field-strategy.component';
 import { NavButtonsComponent } from './nav-buttons/nav-buttons.component';
 import { HelpBubbleDirective } from './help-bubbles/help-bubble.directive';
 import { InfoButtonComponent } from './info-button/info-button.component';
@@ -22,9 +22,9 @@ import { DynamicDirective } from './dynamic-module-loader/dynamic.directive';
 const dependencies = [
     NavButtonsComponent,
     DynamicSingleSelectComponent,
-    Strategy1Component,
-    Strategy2Component,
-    Strategy3Component,
+    SelectOptionStrategyComponent,
+    RadioButtonStrategyComponent,
+    ButtonFieldStrategyComponent,
     InfoButtonComponent,
     HelpBubbleDirective,
     BreadcrumbComponent,

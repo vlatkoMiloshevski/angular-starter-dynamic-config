@@ -2,9 +2,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectedItemModel } from '../dynamic-single-select.component';
 
 @Component({
-    templateUrl: './strategy2.component.html',
+    templateUrl: './radio-button-strategy.component.html',
 })
-export class Strategy2Component implements OnInit {
+export class RadioButtonStrategyComponent implements OnInit {
     @Input() data: SelectedItemModel[];
     @Output() outputEvent: EventEmitter<SelectedItemModel> = new EventEmitter();
     selectedValue: string;
