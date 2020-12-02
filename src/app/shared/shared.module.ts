@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DynamicModule } from '../dynamic-module-loader/dynamic.module';
 import { DynamicSingleSelectComponent } from './dynamic-single-select/dynamic-single-select.component';
 import { DynamicSingleSelectService } from './dynamic-single-select/dynamic-single-select.service';
 import { Strategy1Component } from './dynamic-single-select/strategy/strategy1.component';
@@ -17,6 +16,8 @@ import { RootModalComponent } from './modal/root-modal.component';
 import { ModalService } from './modal/modal.service';
 import { RootDrawerComponent } from './root-drawer/root-drawer.component';
 import { PreviewChangeComponent } from './preview-change/preview-change.component';
+import { DynamicLoaderComponent } from './dynamic-module-loader/dynamic-loader.component';
+import { DynamicDirective } from './dynamic-module-loader/dynamic.directive';
 
 const dependencies = [
     NavButtonsComponent,
@@ -32,6 +33,8 @@ const dependencies = [
     RootModalComponent,
     RootDrawerComponent,
     PreviewChangeComponent,
+    DynamicLoaderComponent,
+    DynamicDirective,
 ];
 
 @NgModule({
@@ -44,7 +47,6 @@ const dependencies = [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        DynamicModule,
     ],
     entryComponents: [...dependencies],
     exports: [...dependencies],

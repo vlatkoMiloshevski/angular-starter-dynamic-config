@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
-import { DynamicComponent } from 'src/app/dynamic-module-loader/dynamic.component';
+import { DynamicComponent } from 'src/app/shared/dynamic-module-loader/dynamic.component';
 import { DynamicSingleSelectService } from './dynamic-single-select.service';
 
 export enum selectedItemPropertyType {

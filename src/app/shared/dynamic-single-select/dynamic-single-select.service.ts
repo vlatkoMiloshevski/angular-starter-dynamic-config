@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DynamicComponent } from 'src/app/dynamic-module-loader/dynamic.component';
+import { DynamicComponent } from 'src/app/shared/dynamic-module-loader/dynamic.component';
 import { SelectedItemModel } from './dynamic-single-select.component';
 import { Strategy1Component } from './strategy/strategy1.component';
 import { Strategy2Component } from './strategy/strategy2.component';

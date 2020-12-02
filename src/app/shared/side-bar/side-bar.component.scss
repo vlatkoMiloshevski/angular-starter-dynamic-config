@@ -4,9 +4,11 @@
     margin-left:24px;
     position: sticky;
     top: 50px;
-    max-height: 400px;
+    max-height: 560px;
     .side-content {
         background-color: lightgray;
         padding: 16px;
+        overflow: auto;
+        max-height: 430px;
     }
 }

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CoreReviewModule } from 'src/app/core/review/core-review.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { DynamicModule } from '../../dynamic-module-loader/dynamic.module';
 import { ReviewComponent } from './review.component';
 import { ReviewRoutes } from './review.routes';
 import { ReviewService } from './review.service';
@@ -17,7 +16,6 @@ import { ReviewService } from './review.service';
         CommonModule,
         CoreReviewModule,
         ReviewRoutes,
-        DynamicModule,
         SharedModule,
     ],
     entryComponents: [

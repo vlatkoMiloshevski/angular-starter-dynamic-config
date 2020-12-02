@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DynamicComponent } from '../../dynamic-module-loader/dynamic.component';
+import { DynamicComponent } from 'src/app/shared/dynamic-module-loader/dynamic.component';
 import { ReviewService } from './review.service';
 
 @Component({

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DynamicComponent } from '../dynamic-module-loader/dynamic.component';
+import { DynamicComponent } from '../shared/dynamic-module-loader/dynamic.component';
 import { selectedItemPropertyType } from '../shared/dynamic-single-select/dynamic-single-select.component';
+import { InfoModalComponent } from '../shared/modal/info-modal/info-modal.component';
+import { ModalComponent } from '../shared/modal/modal.component';
 import { ModalService } from '../shared/modal/modal.service';
 import { TestModalComponent } from '../shared/modal/test-modal/test-modal.component';
 import { DrawerService } from '../shared/root-drawer/drawer.service';
@@ -24,12 +26,14 @@ export class ShowcaseComponent implements OnInit {
     firstInputListNoAdvanced: { name: string; type: selectedItemPropertyType; }[];
     dynamicComponentList: DynamicComponent[];
     isContinueVisible: boolean;
+    modalComponent: ModalComponent;
     constructor(
         private drawerService: DrawerService,
         private modalService: ModalService,
     ) { }
 
     ngOnInit() {
+        this.modalComponent = InfoModalComponent;
         this.firstStrategy = '1';
         this.secondStrategy = '2';
         this.thirdStrategy = '3';

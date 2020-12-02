@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AboutYouComponent } from 'src/app/core/review/about-you/about-you.component';
 import { YourCarComponent } from 'src/app/core/review/your-car/your-car.component';
-import { DynamicComponent } from '../../dynamic-module-loader/dynamic.component';
+import { DynamicComponent } from 'src/app/shared/dynamic-module-loader/dynamic.component';
 
 @Injectable()
 export class ReviewService {

@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DynamicModule } from '../../dynamic-module-loader/dynamic.module';
 import { SharedModule } from '../../shared/shared.module';
 import { PaymentComponent } from './payment.component';
 import { PaymentRoutes } from './payment.routes';
@@ -14,7 +13,6 @@ import { PaymentRoutes } from './payment.routes';
     imports: [
         CommonModule,
         PaymentRoutes,
-        DynamicModule,
         SharedModule,
     ],
     entryComponents: [

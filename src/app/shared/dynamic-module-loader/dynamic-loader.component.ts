@@ -4,7 +4,7 @@ import { DynamicDirective } from './dynamic.directive';
 
 @Component({
     selector: 'app-dynamic-loader',
-    templateUrl: './dynamic-loader.component.html',
+    template: `<ng-template appDynamicDirective></ng-template>`,
 })
 export class DynamicLoaderComponent implements OnInit, OnDestroy {
     @Input() dynamicComponent: DynamicComponent;

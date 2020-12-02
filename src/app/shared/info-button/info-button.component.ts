@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Type } from '@angular/core';
 import { ModalService } from '../modal/modal.service';
-import { TestModalComponent } from '../modal/test-modal/test-modal.component';
+import { InfoModalComponent } from '../modal/info-modal/info-modal.component';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
     selector: 'app-info-button-component',
@@ -8,6 +9,7 @@ import { TestModalComponent } from '../modal/test-modal/test-modal.component';
 })
 export class InfoButtonComponent implements OnInit {
     @Input() tooltipText: string;
+    @Input() modalComponent: Type<ModalComponent>;
 
     constructor(
         private modalService: ModalService,
@@ -17,6 +19,6 @@ export class InfoButtonComponent implements OnInit {
     }
 
     openModal() {
-        this.modalService.openModal(TestModalComponent, { isClosedOnResize: true });
+        this.modalService.openModal(this.modalComponent, { isClosedOnResize: true });
     }
 }
