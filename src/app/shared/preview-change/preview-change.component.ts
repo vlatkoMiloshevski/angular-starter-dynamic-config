@@ -34,6 +34,10 @@ export class PreviewChangeComponent implements OnInit, OnDestroy {
         this.outputEvent.emit(this);
     }
 
+    cancel() {
+        this.isEditable = !this.isEditable;
+    }
+
     ngOnDestroy(): void {
     }
 

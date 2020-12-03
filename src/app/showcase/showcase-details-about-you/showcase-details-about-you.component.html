@@ -24,6 +24,8 @@
     </div>
     <button *ngIf="!letsGoClicked" [disabled]="isFormInvalid" [ngClass]="{'btn-disabled' : isFormInvalid}"
         class="btn btn-primary" (click)="letsGo()">Let's go</button>
+
+    <button *ngIf="letsGoClicked" class="btn" (click)="cancel()" style="margin-right: 10px;">cancel</button>
     <button *ngIf="letsGoClicked" [disabled]="isFormInvalid" [ngClass]="{'btn-disabled' : isFormInvalid}"
         class="btn btn-primary" (click)="save()">save</button>
 </ng-template>
